@@ -54,6 +54,9 @@ class GameUI(UI):
                 [(slen / 2, 0), (slen * 3 / 2, 0),
                  (slen * 2, h), (slen * 3 / 2, h * 2),
                  (slen / 2, h * 2), (0, h)])
+        elif tile.kind == Tile.START:
+            BUF.fill((0, ) * 4)
+            pygame.draw.line(BUF, (0xFF, 0, 0), (GameUI.DIR_MAPPINGS[Tile.UP_L]), (slen, h), LINE_THICKNESS)
         else:
             return
         self.surface.blit(BUF, (x, y))

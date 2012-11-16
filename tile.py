@@ -76,7 +76,14 @@ class Tile(object):
 
 class Board(object):
     def __init__(self):
-        self.board = [[Tile(Tile.OPEN if 0 < Tile.dist((4, 4), (x, y)) <= 3 else Tile.CLOSED)
+        def lookup(dist):
+            if dist == 0:
+                return Tile.START
+            elif dist <= 3:
+                return Tile.OPEN
+            else:
+                return Tile.CLOSED
+        self.board = [[Tile(lookup(Tile.dist((4, 4), (x, y))))
                         for x in xrange(9)]
                         for y in xrange(9)]
         self.entry = Tile.DO_R
