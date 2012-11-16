@@ -131,7 +131,7 @@ class Board(object):
                 self.x -= 1
 
             self.entry = Tile.OPPOSITE[next_dir]
-        if self.cur_tile.kind == Tile.CLOSED:    # game over!~
+        if self.cur_tile.kind in (Tile.CLOSED, Tile.START):    # game over!~
             print "You lose. Final score:", self.score
             return False
         elif self.cur_tile.kind == Tile.OPEN:
