@@ -18,25 +18,11 @@ class Tile(object):
         self.connects = {}
         self.kind = kind
         if kind == Tile.PIECE:
-            # for x, y in ((Tile.UP_L, Tile.UP_R), (Tile.RU_L, Tile.RU_R), (Tile.RD_L, Tile.RD_R),
-            #         (Tile.DO_L, Tile.DO_R), (Tile.LD_L, Tile.LD_R), (Tile.LU_L, Tile.LU_R)):
-            #     self.connects[x] = y
-            #     self.connects[y] = x
-            ###################################################################
-            # for x, y in ((Tile.UP_R, Tile.RU_L), (Tile.RU_R, Tile.RD_L), (Tile.RD_R, Tile.DO_L),
-            #         (Tile.DO_R, Tile.LD_L), (Tile.LD_R, Tile.LU_L), (Tile.LU_R, Tile.UP_L)):
-            #     self.connects[x] = y
-            #     self.connects[y] = x
-            ###################################################################
-            dirs_left = set(Tile.ALL_DIRS)
-            for dr in Tile.ALL_DIRS:
-                if dr not in dirs_left:
-                    continue
-                dirs_left.discard(dr)
-                choice = random.sample(dirs_left, 1)[0]
-                dirs_left.discard(choice)
-                self.connects[dr] = choice
-                self.connects[choice] = dr
+            dirs = Tile.ALL_DIRS[:]
+            random.shuffle(dirs)
+            for o, t in zip(dirs[::2], dirs[1::2]):
+                self.connects[o] = t
+                self.connects[t] = o
 
     def light(self, dr):
         con = self.connects[dr]
