@@ -18,7 +18,7 @@ class Tile(object):
         self.connects = {}
         self.kind = kind
         if kind == Tile.PIECE:
-            dirs = Tile.ALL_DIRS[:]
+            dirs = list(Tile.ALL_DIRS)
             random.shuffle(dirs)
             for o, t in zip(dirs[::2], dirs[1::2]):
                 self.connects[o] = t
@@ -35,13 +35,12 @@ class Tile(object):
         amt = (amt % 6) * 2
         new_connects = {}
         num_sides = len(Tile.ALL_DIRS)
-        for k, v in self.connects.iteritems():
+        for k, v in self.connects.items():
             new_connects[(k + amt) % num_sides] = (v + amt) % num_sides
         self.connects = new_connects
 
     @staticmethod
-    def dist((x1, y1), (x2, y2)):
-        """ No guarantees this actually does what you want: had to do some voodoo magic. """
+    def dist(x1, y1, x2, y2):
         y1 += (x1 - 1) // 2
         y2 += (x2 - 1) // 2
         dx = x1 - x2
@@ -52,7 +51,7 @@ class Tile(object):
     def __str__(self):
         seen = set()
         toR = ""
-        for k, v in self.connects.iteritems():
+        for k, v in self.connects.items():
             if k in seen:
                 continue
             seen.add(v)
@@ -69,9 +68,9 @@ class Board(object):
                 return Tile.OPEN
             else:
                 return Tile.CLOSED
-        self.board = [[Tile(lookup(Tile.dist((4, 4), (x, y))))
-                        for x in xrange(9)]
-                        for y in xrange(9)]
+        self.board = [[Tile(lookup(Tile.dist(4, 4, x, y)))
+                        for x in range(9)]
+                        for y in range(9)]
         self.entry = Tile.DO_R
         self.x = 4
         self.y = 3
@@ -118,7 +117,7 @@ class Board(object):
 
             self.entry = Tile.OPPOSITE[next_dir]
         if self.cur_tile.kind in (Tile.CLOSED, Tile.START):    # game over!~
-            print "You lose. Final score:", self.score
+            print("You lose. Final score:", self.score)
             return False
         elif self.cur_tile.kind == Tile.OPEN:
             self.cur_tile = Tile(Tile.PIECE)
@@ -134,3 +133,26 @@ class Board(object):
 
     def rotate_left(self):
         self.rotate(-1)
+
+    def reset(self):
+        def lookup(dist):
+            if dist == 0:
+                return Tile.START
+            elif dist <= 3:
+                return Tile.OPEN
+            else:
+                return Tile.CLOSED
+        self.board = [[Tile(lookup(Tile.dist(4, 4, x, y)))
+                        for x in range(9)]
+                        for y in range(9)]
+        self.entry = Tile.DO_R
+        self.x = 4
+        self.y = 3
+        self.cur_tile = Tile(Tile.PIECE)
+        self.swap_tile = Tile(Tile.PIECE)
+        self.score = 0
+        self.dirty = 0
+
+    def random(self):
+        self.board[5][1] = Tile(Tile.CLOSED)
+

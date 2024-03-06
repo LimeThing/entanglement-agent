@@ -38,5 +38,5 @@ class UI(object):
     def print_ui_stack(self):
         x = self
         while x:
-            print x.__class__
+            print(x.__class__)
             x = x.parent

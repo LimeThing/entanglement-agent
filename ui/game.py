@@ -28,20 +28,21 @@ class GameUI(UI):
             self.draw_board()
         surf.blit(self.surface, (0, 0))
 
-    def draw_tile(self, tile, (x, y)):
+    def draw_tile(self, tile, x, y):
         """ Carve the buffer, to allow same-side connections to be drawn with circles """
         LINE_THICKNESS = 3
         if tile.kind == Tile.PIECE:
             BUF.fill((0xEE, 0xDD, 0xAA))
-            for k, v in tile.connects.iteritems():
+            for k, v in tile.connects.items():
                 comp = frozenset([k, v])
                 color = (0x66, ) * 3
                 if k in tile.lit:
-                    color = (0xFF, 0, 0)
+                    color = (0x00, 0xEE, 0x44)
                 if(comp in Tile.INLINE):
                     o, t = GameUI.DIR_MAPPINGS[k], GameUI.DIR_MAPPINGS[v]
-                    pygame.draw.circle(BUF, color, map(lambda q: int(sum(q) / len(q)), zip(o, t)),
-                            slen / 4, LINE_THICKNESS)
+                    center = (int((o[0] + t[0]) / 2), int((o[1] + t[1]) / 2))
+                    pygame.draw.circle(BUF, color, center, slen // 4, LINE_THICKNESS)
+
                 else:
                     pygame.draw.line(BUF, color, GameUI.DIR_MAPPINGS[k], GameUI.DIR_MAPPINGS[v], LINE_THICKNESS)
             pygame.draw.polygon(BUF, (0, ) * 4,
@@ -56,7 +57,7 @@ class GameUI(UI):
                  (slen / 2, h * 2), (0, h)])
         elif tile.kind == Tile.START:
             BUF.fill((0, ) * 4)
-            pygame.draw.line(BUF, (0xFF, 0, 0), (GameUI.DIR_MAPPINGS[Tile.UP_L]), (slen, h), LINE_THICKNESS)
+            pygame.draw.line(BUF, (0x00, 0xEE, 0x44), (GameUI.DIR_MAPPINGS[Tile.UP_L]), (slen, h), LINE_THICKNESS)
         else:
             return
         self.surface.blit(BUF, (x, y))
@@ -66,15 +67,33 @@ class GameUI(UI):
             self.board.rotate_left()
         if event.key == pygame.K_RIGHT:
             self.board.rotate_right()
+        if event.key == pygame.K_a:
+            self.board.reset()
+            self.draw_board()
         if event.key == pygame.K_SPACE:
             self.board.place()
         if event.key == pygame.K_TAB:
             self.board.swap()
+        if event.key == pygame.K_s:
+            self.board.random()
+            self.draw_board()
+        if event.key == pygame.K_d:
+            connections = {}
+            k, l = 1, 1
+            for i in self.board.board:
+                l = 1
+                for j in i:
+                    connections[k][l] = j.connects.items()
+                    l += 1
+                k += 1
+            print(connections)
+        if event.key == pygame.K_p:
+            pygame.event.post(self.pause_event)
 
     def draw_board(self):
         self.surface.fill((0, ) * 3)
         self.surface.blit(self.font.render(str(self.board.score), True, (0xFF, ) * 3), (0, 0))
         for y, row in enumerate(self.board.board):
             for x, elem in enumerate(row):
-                self.draw_tile(elem, (x * (3 * slen / 2 + 1), (y + (x % 2) / 2.0) * (h * 2 + 1)))
-        self.draw_tile(self.board.swap_tile, (0, self.main.size[1] - h * 2))
+                self.draw_tile(elem, x * (3 * slen / 2 + 1), (y + (x % 2) / 2.0) * (h * 2 + 1))
+        self.draw_tile(self.board.swap_tile, 0, self.main.size[1] - h * 2)

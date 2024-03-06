@@ -4,8 +4,12 @@ from threading import Thread
 
 import tile
 from tile import Board
+import time
 
-class Main(object):
+import pygame
+from ui.game import GameUI
+
+class Game(object):
     def __init__(self, board, funsies):
         pygame.init()
 
@@ -26,6 +30,13 @@ class Main(object):
         self.clicked = 0
         self.ui = GameUI(self, None)
 
+    def reset(self):
+        self.board = Board()
+        self.clicked = 0
+        self.ui = GameUI(self, None)
+
+
+
     def ui_push(self, cls):
         self.ui = cls(self, self.ui)
 
@@ -43,7 +54,7 @@ class Main(object):
             self.clock.tick(60)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.stop()
+                    self.done = True
                 elif self.funsies:
                     if event.type == pygame.KEYDOWN:
                         self.ui.handle_key(event)
@@ -66,11 +77,30 @@ class Main(object):
                         else:
                             self.ui.handle_motion(event)
 
+            self.handle_custom_events(event)
             self.screen.fill((0, ) * 3)
             self.ui.update()
             self.ui.reblit(self.screen)
             pygame.display.flip()
         pygame.quit()
+
+    def play_step(self, step):
+        if self.done:
+            pygame.quit()
+        time.sleep(0.2)
+        if step[1] == 1:
+            self.board.swap()
+        self.board.rotate(int(step[0]))
+        keep_playing = self.board.place()
+        if keep_playing is not False:
+            print(keep_playing)
+
+        self.screen.fill((0,) * 3)
+        self.ui.update()
+        self.ui.reblit(self.screen)
+        pygame.display.flip()
+        return 0, not keep_playing, 0
+
 
 class Reader(Thread):
     def __init__(self, board):
@@ -83,9 +113,9 @@ class Reader(Thread):
 
     def run(self):
         keep_playing = True
-        print self.board.swap_tile, "|", self.board.cur_tile
+        print(self.board.swap_tile, "|", self.board.cur_tile)
         while not self.kill and keep_playing:
-            inp = raw_input(">")
+            inp = input(">")
             if inp == "quit":
                 break
             matchobj = regex.match(inp)
@@ -95,9 +125,9 @@ class Reader(Thread):
                 self.board.rotate(int(matchobj.group(2)))
                 keep_playing = self.board.place()
                 if keep_playing is not False:
-                    print keep_playing
+                    print(keep_playing)
             else:
-                print "Malformed input."
+                print("Malformed input.")
 
 
 if __name__ == "__main__":
@@ -117,7 +147,7 @@ if __name__ == "__main__":
     if "--nogui" not in sys.argv[1:]:
         import pygame
         from ui.game import GameUI
-        game = Main(board, funsies)
+        game = Game(board, funsies)
         game.run()
         if reader is not None:
             reader.stop()
