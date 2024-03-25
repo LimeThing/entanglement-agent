@@ -9,6 +9,7 @@ import tile
 from tile import Board
 from main import Game
 from main import Reader
+from model import Linear_QNet, QTrainer
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -20,10 +21,10 @@ class Agent:
     def __init__(self):
         self.number_of_games = 0
         self.epsilon = 0  # randomness parameter
-        self.gamma = 0  # discount rate
+        self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = None
-        self.trainer = None
+        self.model = Linear_QNet(100, 256, 7) # calculate how many input states from path info and both curr and swap tile info
+        self.trainer = QTrainer(self.model, learning_rate = LR, gamma= self.gamma)
 
     def get_state(self, game: Game):
         entry_point = game.board.entry
@@ -201,7 +202,7 @@ class Agent:
             final_move[1] = random.randint(0, 1)
         else:
             state0 = torch.tensor(state, dtype=torch.float)
-            move_prediction, swap_prediction = self.model.predict(state0)
+            move_prediction, swap_prediction = self.model(state0)
             move = torch.argmax(move_prediction).item()
             swap = swap_prediction >= 1 ? 1 : 0
             final_move[0] = move
