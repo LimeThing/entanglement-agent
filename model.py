@@ -32,4 +32,33 @@ class QTrainer:
     self.criterion = nn.MSELoss()
 
   def train_step(self, state, action, reward, next_state, done):
-    pass
+    state = torch.tensor(state, dtype=torch.float)
+    action = torch.tensor(state, dtype=torch.long)
+    reward = torch.tensor(state, dtype=torch.float)
+    next_state = torch.tensor(state, dtype=torch.float)
+
+    if len(state.shape) == 1:
+      state = torch.unsqueze(state, 0)
+      next_state = torch.unsqueze(next_state, 0)
+      reward = torch.unsqueze(reward, 0)
+      action = torch.unsqueze(action, 0)
+      done = (done, )
+
+    # 1: predicted Q values using states
+    pred = self.model(state)
+
+    target = pred.clone()
+    for index in range(len(done)):
+      Q_new = reward[index]
+      if not done:
+        Q_new = reward[index] + self.gamma * torch.max(self.model(next_state[index])) 
+
+      target[index][torch.argmax(action).item()] = Q_new # index of the action that is the biggest
+
+    self.optimizer.zero_grad()
+    loss = self.criterion(target, pred)
+    loss.backward()
+
+    self.optimiser.step()
+
+    
