@@ -28,15 +28,6 @@ class Agent:
     def get_state(self, game: Game):
         entry_point = game.board.entry
         print(game.board.cur_tile)
-        # for y, row in enumerate(game.board.board):
-        #     for x, elem in enumerate(row):
-        #         print(f'{elem}', end="")
-        #     print("\n")
-
-
-        # Check which direction has danger
-        danger = [0, 0, 0, 0, 0, 0]  # directions: U, UR, DR, D, DL, UL
-        # 0 - no danger in that direction, 1 - dangerous direction, 2 - placed tile (unknown for now)
 
         closed = [(1, 1), (1, 2), (1, 6), (1, 7), (6, 1), (6, 7), (7, 1), (7, 2), (7, 3), (7, 5), (7, 6), (7, 7)]
         for y in range(9):
@@ -181,41 +172,6 @@ class Agent:
                 path_info[8] = find_depth(y, x - 1, 0, 3)
                 path_info[9] = find_depth(y, x - 1, 0, 2)
 
-
-
-        # if (y - 1, x) in closed:
-        #     danger[0] = 1
-        # if (y + 1, x) in closed:
-        #     danger[3] = 1
-        # if (y, x + 1) in closed:
-        #     if x % 2:
-        #         danger[1] = 1
-        #     else:
-        #         danger[2] = 1
-        # if (y, x - 1) in closed:
-        #     if x % 2:
-        #         danger[5] = 1
-        #     else:
-        #         danger[4] = 1
-        # if x % 2:
-        #     if (y + 1, x + 1) in closed:
-        #         danger[2] = 1
-        #     if (y + 1, x - 1) in closed:
-        #         danger[4] = 1
-        # else:
-        #     if (y - 1, x + 1) in closed:
-        #         danger[1] = 1
-        #     if (y - 1, x - 1) in closed:
-        #         danger[5] = 1
-
-
-        # for i in range(6):
-        #     if danger[i] == 0:
-        #         pass
-        #     else:
-        #         path_info[i*2][0] = 1
-        #         path_info[i*2+1][0] = 1
-
         path_info[entry_point] = [-1, -1, -1, -1]
 
         print(f'Paths: {path_info} on {y} {x}')
@@ -237,70 +193,62 @@ class Agent:
         self.trainer.train_step(state, action, reward, next_state, game_over)
 
     def get_action(self, state):
-        # self.epsilon = 80 - self.number_of_games
-        # final_move = [0, 0]
-        dangerous = True
-        entry_point = state[0]
-        path_info = state[1]
-        cur_tile = state[2]
-        swap_tile = state[3]
-        # print(f'Cuttenr: {cur_tile}, Entry: {entry_point}, Paths: {path_info}')
-        swap = 0
-        max_score = 0
-        best_move = 0
-        clean = True
-        for move in range(0, 6):
-            new_entry = (entry_point - move * 2) % 12
-            exit_point = (cur_tile.connects[new_entry] + move * 2) % 12
-            if path_info[exit_point][0] == 0:
-                if max_score <= path_info[exit_point][1]:
-                    max_score = path_info[exit_point][1]
-                    best_move = move
-                    clean = False
+        self.epsilon = 80 - self.number_of_games
+        final_move = [0, 0]
 
-        for move in range(0, 6):
-            new_entry = (entry_point - move * 2) % 12
-            exit_point = (swap_tile.connects[new_entry] + move * 2) % 12
-            if path_info[exit_point][0] == 0:
-                if max_score < path_info[exit_point][1]:
-                    max_score = path_info[exit_point][1]
-                    best_move = move
-                    swap = 1
-                    clean = False
+        if random.randint(0, 200) < self.epsilon:
+            final_move[0] = random.randint(0, 5)
+            final_move[1] = random.randint(0, 1)
+        else:
+            state0 = torch.tensor(state, dtype=torch.float)
+            prediction = self.model.predict(state0)
+            final_move[0] = torch.
 
-        if clean:
-            for move in range(0, 6):
-                new_entry = (entry_point - move * 2) % 12
-                exit_point = (cur_tile.connects[new_entry] + move * 2) % 12
-                if max_score <= path_info[exit_point][1]:
-                    max_score = path_info[exit_point][1]
-                    best_move = move
-
-            for move in range(0, 6):
-                new_entry = (entry_point - move * 2) % 12
-                exit_point = (swap_tile.connects[new_entry] + move * 2) % 12
-                if max_score < path_info[exit_point][1]:
-                    max_score = path_info[exit_point][1]
-                    best_move = move
-                    swap = 1
-
-        # while dangerous:
-        #     counter += 1
-        #     move = random.randint(0, 5)
+        # dangerous = True
+        # entry_point = state[0]
+        # path_info = state[1]
+        # cur_tile = state[2]
+        # swap_tile = state[3]
+        # # print(f'Cuttenr: {cur_tile}, Entry: {entry_point}, Paths: {path_info}')
+        # swap = 0
+        # max_score = 0
+        # best_move = 0
+        # clean = True
+        # for move in range(0, 6):
         #     new_entry = (entry_point - move * 2) % 12
         #     exit_point = (cur_tile.connects[new_entry] + move * 2) % 12
-        #     # print(f'move: {move}, Entrynew: {new_entry}, exit: {exit_point}')
         #     if path_info[exit_point][0] == 0:
-        #         dangerous = False
-        #     if counter > 50:
-        #         # swap tile
-        #         swap = 1
-        #         cur_tile = swap_tile
-        #     if counter > 100:
-        #         return [0, 1]
+        #         if max_score <= path_info[exit_point][1]:
+        #             max_score = path_info[exit_point][1]
+        #             best_move = move
+        #             clean = False
+        #
+        # for move in range(0, 6):
+        #     new_entry = (entry_point - move * 2) % 12
+        #     exit_point = (swap_tile.connects[new_entry] + move * 2) % 12
+        #     if path_info[exit_point][0] == 0:
+        #         if max_score < path_info[exit_point][1]:
+        #             max_score = path_info[exit_point][1]
+        #             best_move = move
+        #             swap = 1
+        #             clean = False
+        #
+        # if clean:
+        #     for move in range(0, 6):
+        #         new_entry = (entry_point - move * 2) % 12
+        #         exit_point = (cur_tile.connects[new_entry] + move * 2) % 12
+        #         if max_score <= path_info[exit_point][1]:
+        #             max_score = path_info[exit_point][1]
+        #             best_move = move
+        #
+        #     for move in range(0, 6):
+        #         new_entry = (entry_point - move * 2) % 12
+        #         exit_point = (swap_tile.connects[new_entry] + move * 2) % 12
+        #         if max_score < path_info[exit_point][1]:
+        #             max_score = path_info[exit_point][1]
+        #             best_move = move
+        #             swap = 1
 
-        final_move = [best_move, swap]
-        print(final_move)
         return final_move
 
 
@@ -321,14 +269,14 @@ def train():
             final_move = agent.get_action(state_old)  # new move
             reward, game_over, score = game.play_step(final_move)  # perform move
             state_new = agent.get_state(game)  # get new state after previous move
-            # agent.train_short_memory(state_old, final_move, reward, state_new, game_over)
-            # agent.remember(state_old, final_move, reward, state_new, game_over)
+            agent.train_short_memory(state_old, final_move, reward, state_new, game_over)
+            agent.remember(state_old, final_move, reward, state_new, game_over)
 
             if game_over:
                 paused = True
                 game.reset()
                 agent.number_of_games += 1
-                # agent.train_long_memory()
+                agent.train_long_memory()
 
                 if score > record:
                     record = score
