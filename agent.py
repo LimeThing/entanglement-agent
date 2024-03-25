@@ -201,53 +201,11 @@ class Agent:
             final_move[1] = random.randint(0, 1)
         else:
             state0 = torch.tensor(state, dtype=torch.float)
-            prediction = self.model.predict(state0)
-            final_move[0] = torch.
-
-        # dangerous = True
-        # entry_point = state[0]
-        # path_info = state[1]
-        # cur_tile = state[2]
-        # swap_tile = state[3]
-        # # print(f'Cuttenr: {cur_tile}, Entry: {entry_point}, Paths: {path_info}')
-        # swap = 0
-        # max_score = 0
-        # best_move = 0
-        # clean = True
-        # for move in range(0, 6):
-        #     new_entry = (entry_point - move * 2) % 12
-        #     exit_point = (cur_tile.connects[new_entry] + move * 2) % 12
-        #     if path_info[exit_point][0] == 0:
-        #         if max_score <= path_info[exit_point][1]:
-        #             max_score = path_info[exit_point][1]
-        #             best_move = move
-        #             clean = False
-        #
-        # for move in range(0, 6):
-        #     new_entry = (entry_point - move * 2) % 12
-        #     exit_point = (swap_tile.connects[new_entry] + move * 2) % 12
-        #     if path_info[exit_point][0] == 0:
-        #         if max_score < path_info[exit_point][1]:
-        #             max_score = path_info[exit_point][1]
-        #             best_move = move
-        #             swap = 1
-        #             clean = False
-        #
-        # if clean:
-        #     for move in range(0, 6):
-        #         new_entry = (entry_point - move * 2) % 12
-        #         exit_point = (cur_tile.connects[new_entry] + move * 2) % 12
-        #         if max_score <= path_info[exit_point][1]:
-        #             max_score = path_info[exit_point][1]
-        #             best_move = move
-        #
-        #     for move in range(0, 6):
-        #         new_entry = (entry_point - move * 2) % 12
-        #         exit_point = (swap_tile.connects[new_entry] + move * 2) % 12
-        #         if max_score < path_info[exit_point][1]:
-        #             max_score = path_info[exit_point][1]
-        #             best_move = move
-        #             swap = 1
+            move_prediction, swap_prediction = self.model.predict(state0)
+            move = torch.argmax(move_prediction).item()
+            swap = swap_prediction >= 1 ? 1 : 0
+            final_move[0] = move
+            final_move[1] = swap
 
         return final_move
 
