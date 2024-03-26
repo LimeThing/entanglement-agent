@@ -10,6 +10,7 @@ from tile import Board
 from main import Game
 from main import Reader
 from model import Linear_QNet, QTrainer
+from helper import plot
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -23,12 +24,12 @@ class Agent:
         self.epsilon = 0  # randomness parameter
         self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Linear_QNet(100, 256, 7) # calculate how many input states from path info and both curr and swap tile info
+        self.model = Linear_QNet(73, 256, 7)
         self.trainer = QTrainer(self.model, learning_rate = LR, gamma= self.gamma)
 
     def get_state(self, game: Game):
         entry_point = game.board.entry
-        print(game.board.cur_tile)
+        # print(game.board.cur_tile)
 
         closed = [(1, 1), (1, 2), (1, 6), (1, 7), (6, 1), (6, 7), (7, 1), (7, 2), (7, 3), (7, 5), (7, 6), (7, 7)]
         for y in range(9):
@@ -45,18 +46,18 @@ class Agent:
                      [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
         def find_depth(y1, x1, depth, direction):
-            print(f'{y1} {x1} and {y} {x} on depth {depth} and looking at path {direction}')
+            # print(f'{y1} {x1} and {y} {x} on depth {depth} and looking at path {direction}')
             if y1 == y and x1 == x:
-                print(f'{y1} {x1} and {y} {x} and it looped')
+                # print(f'{y1} {x1} and {y} {x} and it looped')
                 return [-1, -1, -1, -1]
             if game.board.board[y1][x1].kind == tile.Tile.OPEN:
-                print("current tile is open")
+                # print("current tile is open")
                 return [0, depth, y1, x1]
             elif game.board.board[y1][x1].kind == tile.Tile.CLOSED or game.board.board[y1][x1].kind == tile.Tile.START:
-                print("current tile is closed or start, aka danger")
+                # print("current tile is closed or start, aka danger")
                 return [1, depth, y1, x1]
             else:
-                print("current tile is a placed piece")
+                # print("current tile is a placed piece")
                 new_direction = game.board.board[y1][x1].connects[direction]
                 if new_direction == 0 or new_direction == 1:
                     y1 = y1 - 1
@@ -89,9 +90,18 @@ class Agent:
                 new_direction = tile.Tile.OPPOSITE[new_direction]
                 return find_depth(y1, x1, depth + 1, new_direction)
 
-        print(f'Calling find depth for {y} and {x}')
+        # print(f'Calling find depth for {y} and {x}')
         if (y, x) in closed:
-            return [entry_point, path_info, game.board.cur_tile]
+            end_state = [entry_point] + [elem for sublist in path_info for elem in sublist][:48]
+
+            for value in game.board.swap_tile.connects.values():
+                end_state.append(0)
+
+            for value in game.board.swap_tile.connects.values():
+                end_state.append(value)
+
+
+            return end_state
 
         if game.board.board[y - 1][x].kind == tile.Tile.CLOSED or game.board.board[y - 1][x].kind == tile.Tile.START:
             path_info[0][0] = 1
@@ -175,9 +185,25 @@ class Agent:
 
         path_info[entry_point] = [-1, -1, -1, -1]
 
-        print(f'Paths: {path_info} on {y} {x}')
+        # print(f'Paths: {path_info} on {y} {x}')
 
-        return [entry_point, path_info, game.board.cur_tile, game.board.swap_tile]
+        # state must be one long array of numbers
+        # index legend: 0 / entry point
+        # 1 - 48 / path info
+        # 49 - 60 / curr tile connects
+        # 61 - 72 / swap tile connects
+
+        state = [entry_point] + [elem for sublist in path_info for elem in sublist][:48]
+
+        for value in game.board.cur_tile.connects.values():
+            state.append(value)
+
+        for value in game.board.swap_tile.connects.values():
+            state.append(value)
+
+        # print(state)
+        # return [entry_point, path_info, game.board.cur_tile, game.board.swap_tile]
+        return state
 
     def remember(self, state, action, reward, next_state, game_over):
         self.memory.append((state, action, reward, next_state, game_over))
@@ -202,12 +228,13 @@ class Agent:
             final_move[1] = random.randint(0, 1)
         else:
             state0 = torch.tensor(state, dtype=torch.float)
-            move_prediction, swap_prediction = self.model(state0)
+            prediction = self.model(state0)
+            move_prediction = prediction[0:6]
+            swap_prediction = prediction[6]
             move = torch.argmax(move_prediction).item()
-            swap = swap_prediction >= 1 ? 1 : 0
+            swap = 1 if swap_prediction >= 1 else 0
             final_move[0] = move
             final_move[1] = swap
-
         return final_move
 
 
@@ -232,18 +259,24 @@ def train():
             agent.remember(state_old, final_move, reward, state_new, game_over)
 
             if game_over:
-                paused = True
+                # paused = True
                 game.reset()
                 agent.number_of_games += 1
                 agent.train_long_memory()
 
                 if score > record:
                     record = score
-                    # TODO agent.model.save()
+                    agent.model.save()
 
                 print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
+
+                plot_scores.append(score)
+                total_score += score
+                mean_score = total_score / agent.number_of_games
+                plot_average_scores.append(mean_score)
+                plot(plot_scores, plot_average_scores)
         else:
-            time.sleep(0.5)
+            time.sleep(0.05)
         for event in pygame.event.get():
             if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
                 done = False

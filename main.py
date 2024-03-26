@@ -99,7 +99,7 @@ class Game(object):
         self.ui.update()
         self.ui.reblit(self.screen)
         pygame.display.flip()
-        return 0, not keep_playing, 0
+        return self.board.score, not keep_playing, self.board.score
 
 
 class Reader(Thread):
