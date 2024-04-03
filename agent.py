@@ -25,7 +25,7 @@ class Agent:
         self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
         self.model = Linear_QNet(73, 256, 7)
-        self.trainer = QTrainer(self.model, learning_rate = LR, gamma= self.gamma)
+        self.trainer = QTrainer(self.model, learning_rate=LR, gamma=self.gamma)
 
     def get_state(self, game: Game):
         entry_point = game.board.entry
@@ -100,20 +100,19 @@ class Agent:
             for value in game.board.swap_tile.connects.values():
                 end_state.append(value)
 
-
             return end_state
 
         if game.board.board[y - 1][x].kind == tile.Tile.CLOSED or game.board.board[y - 1][x].kind == tile.Tile.START:
             path_info[0][0] = 1
             path_info[1][0] = 1
-        elif game.board.board[y-1][x].kind == tile.Tile.PIECE:
+        elif game.board.board[y - 1][x].kind == tile.Tile.PIECE:
             path_info[0] = find_depth(y - 1, x, 0, 7)
             path_info[1] = find_depth(y - 1, x, 0, 6)
 
         if game.board.board[y + 1][x].kind == tile.Tile.CLOSED or game.board.board[y + 1][x].kind == tile.Tile.START:
             path_info[6][0] = 1
             path_info[7][0] = 1
-        elif game.board.board[y+1][x].kind == tile.Tile.PIECE:
+        elif game.board.board[y + 1][x].kind == tile.Tile.PIECE:
             path_info[6] = find_depth(y + 1, x, 0, 1)
             path_info[7] = find_depth(y + 1, x, 0, 0)
 
@@ -222,20 +221,28 @@ class Agent:
     def get_action(self, state):
         self.epsilon = 80 - self.number_of_games
         final_move = [0, 0]
+        modified_move = [0, 0, 0, 0, 0, 0, 0]
 
         if random.randint(0, 200) < self.epsilon:
             final_move[0] = random.randint(0, 5)
             final_move[1] = random.randint(0, 1)
+            modified_move[final_move[0]] = 1
+            modified_move[6] = final_move[1]
         else:
             state0 = torch.tensor(state, dtype=torch.float)
             prediction = self.model(state0)
             move_prediction = prediction[0:6]
             swap_prediction = prediction[6]
             move = torch.argmax(move_prediction).item()
-            swap = 1 if swap_prediction >= 1 else 0
+            print(swap_prediction) # you need ot get them outta the tensor
+            swap = 1 if torch.arg(swap_prediction).item() else 0
             final_move[0] = move
             final_move[1] = swap
-        return final_move
+
+            modified_move = [0, 0, 0, 0, 0, 0, swap]
+            modified_move[move] = 1
+
+        return modified_move
 
 
 def train():
