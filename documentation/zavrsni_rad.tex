@@ -9,25 +9,25 @@
 %--- PODACI O RADU / THESIS INFORMATION ----------------------------------------
 
 % Naslov na engleskom jeziku / Title in English
-\title{Uncomputable Computablity}
+\title{Development of an agent for solving the Entaglement game}
 
 % Naslov na hrvatskom jeziku / Title in Croatian
-\naslov{Neizračunljiva izračunljivost}
+\naslov{Razvoj agenta za igranje igre Entanglement}
 
 % Broj rada / Thesis number
-\brojrada{1234}
+\brojrada{1}
 
 % Autor / Author
-\author{Ferko Ferovac}
+\author{Iva Rengel}
 
 % Mentor 
-\mentor{Prof.\@ Baltazar}
+\mentor{Prof.\@ Marko Đurasević}
 
 % Datum rada na engleskom jeziku / Date in English
-\date{June, 2021}
+\date{June, 2024}
 
 % Datum rada na hrvatskom jeziku / Date in Croatian
-\datum{lipanj, 2021.}
+\datum{lipanj, 2024.}
 
 %-------------------------------------------------------------------------------
 
@@ -86,12 +86,41 @@ Sada slijedi jedna jednadžba:
 \end{equation}
 Jednadžba \eqref{jed:prvajednadzba} je moja prva jednadžba koja defnira par $f(t)\ufrek F(\omega)$ ili $F(\omega)\uvrem f(t)$.
 
+Opis zadatka gdje ce se pojaviti ovaj tekst? Neznam dok ne convertam opet PDF? Tocno.
+Okay, krenimo s pisanjem zavrsnog.
+
+Poručiti pravila igranje igre Entaglement. Razviti jednostavno programsko okruženje koje omogućuje testiranje različitih agenata za igranje navedene igre. Razviti jednostavne heuristike za igranje navedene igre. Proučiti literaturu koja se bavi razvojem agenata za slične probleme igranje igara. Predložiti i razviti agenta za igranje igre Entanglement koji je temeljen na metodama optimizacije ili neuronskih mreža. Ispitati učinkovitost razvijenog agenta te ju usporediti s rezultatima ostvarenim jednostanim heuristikama. Radu priložiti izvorne tekstove programa, dobivene rezultate uz potrebna objašnjenja i korištenu literaturu.
+
+Plan rada:
+Za vrijeme pisanja ovog dijela trenutno je 5ti tjedan nastave.
+Planirana poglavlja dokumentacije:
+- opis igre entanglement
+- opis pronadene i modificirane igre u koju se moze ubaciti agent
+- razvijanje i isprobavanje heuristika
+- razviti agente s neuronskim mrezama
+- razviti agente koristenjem metoda optimizacija
+- usporedba rezultata
+- opt: upogonjenje heuristika u kombo s neuronskom mrezom
+
+Zadatci:
+- pokusat upogonit onay python package za crtanje grafova radi mogucnosti vizualiyacije rezultata
+- prouciti literaturu i napisati sazetke o navedenim temama iznad
+
+
 
 %-------------------------------------------------------------------------------
 \chapter{Glavni dio}
 \label{pog:glavni_dio}
 
-\Blindtext
+\section{O igri Entanglement}
+\label{pog:o_igri}
+
+Igra Entanglement jest online igra koji su napravili \cite{gopherwoodstudios} Gopherwood Studios. Igra se satoji od velike igrače ploče s heksagonalnim izrezime u koje se postavljaju pločice. Igra kreče od središnje, već postavljene pločice. Na njoj je vidljiv "konac" izrazite boje, ovdje je crven te će u kasnijim primjerima biti žarko zelen.
+Jedan potez igre jest jedno postavljanje nove pločice. Sve pločice na sebi imaju 12 smjerova, spojenih međusobno u šest nasumično izabranih puteva. Prije no što se pločica postavi na ploču, moguće ju je rotirati ili zamjeniti sa zamjenskom pločicom. Nakon postavljanja, iz onog smjera iz kojeg dolazi konac iz prijašnje ploče, put koji počinje tim smjerom bit će osvjetljen bojom. Igra se nastavlja davanjem igraču novogeneriranu pločicu koje sada može postaviti na polje gdje put konca završava.
+Ako put konca ne zavrži u praznom polju, već u startnom polju ili na granici, igra završava. Ako put konca završava tamo gdje se nalazi već postavljena igračeva pločica, za svaku naknadnu pločicu koju konac prođe do sljedečeg praznog mjesta ili granice dodaje se linearno rastući broj bodova na vrijednost ukupnih bodova. Na primjer, ako se konac pronađe u praznom polju odmah nakon postavljanja ploče, igrač dobiva samo 1 bod. Ali ako se kraj konca pronađe na ulazu u neku drugu ploču te sveukupno prolazi kroz 4 pločice dok ne dođe do praznog polja, na kraju prolaska na vrijednost ukupnih bodova akumulirati će se cijena 1 + 2 + 3 + 4 = 10 bodova.
+Jednom kada se trenutna pločica zamjeni sa zamjenskom, tamo će ostati do sljedeće zamjene. Cilj igre jest skupiti što je moguće više bodova prije no što se popune sve prazne pločice ili se konac "zabije" u neku od granica. U oba slučaja, krajnji bodovi isti su sveukupnim do tada akumuliranim bodovima kroz igru.
+
+No, na online verziju igre
 
 
 %-------------------------------------------------------------------------------
