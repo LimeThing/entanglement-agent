@@ -1,53 +1,53 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: zavrsni_rad.aux
 The style file: fer_IEEEtran_HR.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 150 items from 100.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 150 items from 100.
 Database file #1: literatura.bib
-You've used 7 entries,
+You've used 8 entries,
             4225 wiz_defined-function locations,
-            874 strings with 8741 characters,
-and the built_in function-call counts, 4528 in all, are:
-= -- 330
-> -- 90
+            877 strings with 8818 characters,
+and the built_in function-call counts, 4819 in all, are:
+= -- 346
+> -- 94
 < -- 30
-+ -- 52
-- -- 15
-* -- 191
-:= -- 677
-add.period$ -- 17
-call.type$ -- 7
++ -- 54
+- -- 16
+* -- 194
+:= -- 722
+add.period$ -- 18
+call.type$ -- 8
 change.case$ -- 4
 chr.to.int$ -- 75
-cite$ -- 7
-duplicate$ -- 319
-empty$ -- 422
-format.name$ -- 20
-if$ -- 1082
+cite$ -- 8
+duplicate$ -- 346
+empty$ -- 458
+format.name$ -- 21
+if$ -- 1153
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 59
-newline$ -- 52
-num.names$ -- 7
-pop$ -- 157
+int.to.str$ -- 8
+missing$ -- 66
+newline$ -- 55
+num.names$ -- 8
+pop$ -- 178
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 365
+skip$ -- 393
 stack$ -- 0
 substring$ -- 180
-swap$ -- 237
+swap$ -- 249
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 7
+type$ -- 8
 warning$ -- 0
-while$ -- 16
-width$ -- 8
-write$ -- 89
+while$ -- 17
+width$ -- 9
+write$ -- 95
