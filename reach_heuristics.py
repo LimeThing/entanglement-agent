@@ -6,6 +6,7 @@ import random
 import numpy as np
 from collections import deque
 import tile
+from helper import plot
 from tile import Board
 from main import Game
 from main import Reader
@@ -218,12 +219,17 @@ def train():
             reward, game_over, score = game.play_step(final_move)  # perform move
 
             if game_over:
-                paused = True
                 game.reset()
                 agent.number_of_games += 1
 
                 if score > record:
                     record = score
+
+                plot_scores.append(score)
+                total_score += score
+                mean_score = total_score / agent.number_of_games
+                plot_average_scores.append(mean_score)
+                plot(plot_scores, plot_average_scores)
 
                 print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
         else:

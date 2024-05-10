@@ -90,12 +90,11 @@ class Game(object):
         if self.done:
             pygame.quit()
         # time.sleep(0.2)
-        if step[6] == 1:
+        if step[1] == 1:
             self.board.swap()
         # self.board.rotate(int(step[0]))
-        for i in range(6):
-            if step[i] == 1:
-                self.board.rotate(i)
+
+        self.board.rotate(step[0])
         keep_playing = self.board.place()
         if keep_playing is not False:
             print(keep_playing)

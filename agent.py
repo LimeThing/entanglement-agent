@@ -235,7 +235,7 @@ class Agent:
             swap_prediction = prediction[6]
             move = torch.argmax(move_prediction).item()
             print(swap_prediction) # you need ot get them outta the tensor
-            swap = 1 if torch.arg(swap_prediction).item() else 0
+            swap = 1 if torch.argmax(swap_prediction).item() else 0
             final_move[0] = move
             final_move[1] = swap
 
