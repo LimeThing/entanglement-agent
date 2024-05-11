@@ -7,6 +7,10 @@
 \contentsline {section}{\numberline {2.2.}Heuristike i agenti}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3.}Razvojno okruženje za implementaciju agenata}{5}{section.2.3}%
 \contentsline {section}{\numberline {2.4.}Definicija stanja igre, ploče, opasnosti i koraka}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.5.}Biranje koraka slučajnim odabirom}{6}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1.}Neposredna heuristika}{6}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2.}Dubinska heuristika sa slučajnim odabirom}{6}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3.}Dubinska heuristika sa izračunavanjem najduljeg puta}{6}{subsection.2.5.3}%
 \contentsline {chapter}{\numberline {3.}Rezultati i rasprava}{7}{chapter.3}%
 \contentsline {chapter}{\numberline {4.}Zaključak}{9}{chapter.4}%
 \contentsline {chapter}{Literatura}{10}{chapter*.4}%
