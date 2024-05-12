@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.4.27)  10 MAY 2024 12:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.4.27)  12 MAY 2024 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,14 +598,7 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
 \l__pdf_internal_box=\box55
 )
-(./zavrsni_rad.aux
-
-LaTeX Warning: Label `pog:neposredna' multiply defined.
-
-
-LaTeX Warning: Label `pog:neposredna' multiply defined.
-
-)
+(./zavrsni_rad.aux)
 \openout1 = `zavrsni_rad.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -870,99 +863,132 @@ e
 e 115.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
 (Font)              scaled to size 16.0pt on input line 115.
+<Figures/game.png, id=137, 1846.9pt x 1618.045pt>
+File: Figures/game.png Graphic file (type png)
+<use Figures/game.png>
+Package pdftex.def Info: Figures/game.png  used on input line 123.
+(pdftex.def)             Requested size: 255.79108pt x 224.0805pt.
 [4
 
-]
-<Figures/board_diagram.png, id=145, 1233.10687pt x 673.01437pt>
+ <./Figures/game.png>] [5]
+<Figures/gamefinished.png, id=151, 600.2425pt x 612.2875pt>
+File: Figures/gamefinished.png Graphic file (type png)
+<use Figures/gamefinished.png>
+Package pdftex.def Info: Figures/gamefinished.png  used on input line 157.
+(pdftex.def)             Requested size: 255.79108pt x 260.92412pt.
+ [6 <./Figures/gamefinished.png>]
+<Figures/board_diagram.png, id=160, 1233.10687pt x 673.01437pt>
 File: Figures/board_diagram.png Graphic file (type png)
 <use Figures/board_diagram.png>
-Package pdftex.def Info: Figures/board_diagram.png  used on input line 153.
+Package pdftex.def Info: Figures/board_diagram.png  used on input line 175.
 (pdftex.def)             Requested size: 299.88882pt x 163.67303pt.
- [5] [6 <./Figures/board_diagram.png (PNG copy)>]
+ [7 <./Figures/board_diagram.png (PNG copy)>]
+<Figures/random.png, id=168, 1174.3875pt x 844.15375pt>
+File: Figures/random.png Graphic file (type png)
+<use Figures/random.png>
+Package pdftex.def Info: Figures/random.png  used on input line 206.
+(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
+<Figures/sofort.png, id=169, 1174.3875pt x 844.15375pt>
+File: Figures/sofort.png Graphic file (type png)
+<use Figures/sofort.png>
+Package pdftex.def Info: Figures/sofort.png  used on input line 218.
+(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
+<Figures/reach.png, id=170, 1174.3875pt x 844.15375pt>
+File: Figures/reach.png Graphic file (type png)
+<use Figures/reach.png>
+Package pdftex.def Info: Figures/reach.png  used on input line 231.
+(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
+<Figures/depth.png, id=171, 1174.3875pt x 844.15375pt>
+File: Figures/depth.png Graphic file (type png)
+<use Figures/depth.png>
+Package pdftex.def Info: Figures/depth.png  used on input line 243.
+(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
+ [8] [9 <./Figures/random.png> <./Figures/sofort.png>] [10 <./Figures/reach.png
+> <./Figures/depth.png>]
 Poglavlje 3..
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 189.
+(blindtext)                 on input line 254.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 189.
+(blindtext)                 on input line 254.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 189.
+(blindtext)                 on input line 254.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 189.
-
-[7
-
-]
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 189.
-
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 189.
-
-[8]
-Poglavlje 4..
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 196.
-
-(./zavrsni_rad.bbl [9
-
-]) [10
-
-]
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 213.
+(blindtext)                 on input line 254.
 
 [11
 
-] [12
+]
+
+Package blindtext Warning: croatian not defined, using English instead.
+(blindtext)                 on input line 254.
+
+
+Package blindtext Warning: croatian not defined, using English instead.
+(blindtext)                 on input line 254.
+
+[12]
+Poglavlje 4..
+
+Package blindtext Warning: croatian not defined, using English instead.
+(blindtext)                 on input line 261.
+
+(./zavrsni_rad.bbl [13
+
+]) [14
+
+]
+
+Package blindtext Warning: croatian not defined, using English instead.
+(blindtext)                 on input line 278.
+
+[15
+
+] [16
 
 ]
 pdfTeX warning (ext4): destination with the same identifier (name{chapter.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.237 \chapter{The Code}
+l.302 \chapter{The Code}
                         
 Privitak A.
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 240.
+(blindtext)                 on input line 305.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 240.
+(blindtext)                 on input line 305.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 240.
+(blindtext)                 on input line 305.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 240.
+(blindtext)                 on input line 305.
 
-[13
+[17
 
 
 ]
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 240.
+(blindtext)                 on input line 305.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 240.
+(blindtext)                 on input line 305.
 
-[14] (./zavrsni_rad.aux)
+[18] (./zavrsni_rad.aux)
 
  *File List*
      fer.cls    2021/06/10 FER3
@@ -1070,24 +1096,27 @@ ls2stix2tt.fd    2018/04/02 v2.0.0-latex stix2 typewriter LS2 font definitions
     umsb.fd    2013/01/14 v3.01 AMS symbols B
 Figures/lenovo_yoga_tab3_pro_front.png
   t1cmtt.fd    2022/07/10 v2.5l Standard LaTeX font definitions
+Figures/game.png
+Figures/gamefinished.png
 Figures/board_diagram.png
+Figures/random.png
+Figures/sofort.png
+Figures/reach.png
+Figures/depth.png
 zavrsni_rad.bbl
  ***********
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `zavrsni_rad.out' has not changed.
-(rerunfilecheck)             Checksum: 1D6A048F61019C21B2BEBD7387C1EC4D;2691.
+(rerunfilecheck)             Checksum: 424BB5F7BA781450E91C1E2BB6D98081;2879.
  ) 
 Here is how much of TeX's memory you used:
- 18020 strings out of 477344
- 280110 string characters out of 5823094
- 1858388 words of memory out of 5000000
- 37909 multiletter control sequences out of 15000+600000
+ 18091 strings out of 477344
+ 281480 string characters out of 5823094
+ 1857388 words of memory out of 5000000
+ 37965 multiletter control sequences out of 15000+600000
  592440 words of font info for 134 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 87i,6n,131p,705b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,6n,131p,705b,625s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb></usr/
 share/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></usr/share
 /texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb></usr/share/texmf-dist
@@ -1095,10 +1124,10 @@ share/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></usr/share
 /type1/public/stix2-type1/STIX2Text-Italic.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/stix2-type1/STIX2Text-Regular.pfb></usr/share/texmf-dist/fonts/type1/
 public/cm-super/sftt1200.pfb>
-Output written on zavrsni_rad.pdf (17 pages, 937480 bytes).
+Output written on zavrsni_rad.pdf (21 pages, 7142545 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
- 42 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 235 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

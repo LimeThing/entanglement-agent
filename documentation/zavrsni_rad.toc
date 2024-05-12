@@ -4,24 +4,24 @@
 \contentsline {chapter}{\numberline {1.}Uvod}{2}{chapter.1}%
 \contentsline {chapter}{\numberline {2.}Glavni dio}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1.}O igri Entanglement}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2.}Heuristike i agenti}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3.}Razvojno okruženje za implementaciju agenata}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4.}Definicija stanja igre, ploče, opasnosti i koraka}{5}{section.2.4}%
-\contentsline {section}{\numberline {2.5.}Biranje koraka slučajnim odabirom}{6}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1.}Neposredna heuristika}{6}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2.}Dubinska heuristika sa slučajnim odabirom}{6}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3.}Dubinska heuristika sa izračunavanjem najduljeg puta}{6}{subsection.2.5.3}%
-\contentsline {chapter}{\numberline {3.}Rezultati i rasprava}{7}{chapter.3}%
-\contentsline {chapter}{\numberline {4.}Zaključak}{9}{chapter.4}%
-\contentsline {chapter}{Literatura}{10}{chapter*.4}%
+\contentsline {section}{\numberline {2.2.}Definicija heuristika i neuronskih mreža}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3.}Razvojno okruženje za implementaciju heuristika i agenata}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4.}Definicija stanja igre, ploče, opasnosti i koraka}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.5.}Biranje koraka slučajnim odabirom}{8}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1.}Neposredna heuristika}{8}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2.}Dubinska heuristika sa slučajnim odabirom}{8}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3.}Dubinska heuristika sa izračunavanjem najduljeg puta}{8}{subsection.2.5.3}%
+\contentsline {chapter}{\numberline {3.}Rezultati i rasprava}{11}{chapter.3}%
+\contentsline {chapter}{\numberline {4.}Zaključak}{13}{chapter.4}%
+\contentsline {chapter}{Literatura}{14}{chapter*.10}%
 \babel@toc {croatian}{}\relax 
-\contentsline {chapter}{Sa\v {z}etak}{11}{chapter*.5}%
+\contentsline {chapter}{Sa\v {z}etak}{15}{chapter*.11}%
 \babel@toc {croatian}{}\relax 
 \babel@toc {croatian}{}\relax 
-\babel@toc {croatian}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {chapter}{Abstract}{12}{chapter*.6}%
 \babel@toc {croatian}{}\relax 
 \babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{16}{chapter*.12}%
 \babel@toc {croatian}{}\relax 
-\contentsline {chapter}{\numberline {A:}The Code}{13}{chapter.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {croatian}{}\relax 
+\contentsline {chapter}{\numberline {A:}The Code}{17}{chapter.1}%

@@ -118,24 +118,46 @@ Zadatci:
 
 Igra Entanglement jest online igra koju su napravili \cite{gopherwoodstudios} Gopherwood Studios. Igra se sastoji od velike igrače ploče s heksagonalnim izrezima u koje se postavljaju pločice. Igra kreče od središnje, već postavljene pločice. Na njoj je vidljiv "konac" izrazite boje, ovdje je crven te će u kasnijim primjerima biti žarko zelen.
 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.58\linewidth]{Figures/game.png} 
+	\caption{Prikaz originalne igre u tijeku}
+	\label{slk:game_screen}
+\end{figure}
+
 Jedan potez igre jest jedno postavljanje nove pločice. Sve pločice na sebi imaju 12 smjerova, spojenih međusobno u šest nasumično izabranih puteva. Prije no što se pločica postavi na ploču, moguće ju je rotirati ili zamijeniti sa zamjenskom pločicom. Nakon postavljanja, iz onog smjera iz kojeg dolazi konac iz prijašnje ploče, put koji počinje tim smjerom bit će osvijetljen bojom. Igra se nastavlja davanjem igraču novogeneriranu pločicu koje sada može postaviti na polje gdje put konca završava.
 
 Ako put konca ne završi u praznom polju, već u startnom polju ili na granici, igra završava. Ako put konca završava tamo gdje se nalazi već postavljena igračeva pločica, za svaku naknadnu pločicu koju konac prođe do sljedećeg praznog mjesta ili granice dodaje se linearno rastući broj bodova na vrijednost ukupnih bodova. Na primjer, ako se konac pronađe u praznom polju odmah nakon postavljanja ploče, igrač dobiva samo 1 bod. Ali ako se kraj konca pronađe na ulazu u neku drugu ploču te sveukupno prolazi kroz 4 pločice dok ne dođe do praznog polja, na kraju prolaska na vrijednost ukupnih bodova akumulirat će se cijena 1 + 2 + 3 + 4 = 10 bodova.
 
-Jednom kada se trenutna pločica zamjeni sa zamjenskom, tamo će ostati do sljedeće zamjene. Cilj igre jest skupiti što je moguće više bodova prije no što se popune sve prazne pločice ili se konac "zabije" u neku od granica. U oba slučaja, krajnji bodovi isti su sveukupnim do tada akumuliranim bodovima kroz igru.
+Jednom kada se trenutna pločica zamjeni sa zamjenskom, tamo će ostati do sljedeće zamjene. Cilj igre jest skupiti što je moguće više bodova prije no što se popune sve prazne pločice ili se konac "zabije" u neku od granica. U oba slučaja, krajnji bodovi isti su sveukupnim do tada akumuliranim bodovima kroz igru. Trenutno najveći broj bodova ikad sakupljen jest 5403.
 
-\section{Heuristike i agenti}
-\label{pog:opis_agenata}
+\section{Definicija heuristika i neuronskih mreža}
+\label{pog:opis_heuristika_i_neuronskih}
+
+
+Heuristika ili heuristička tehnika u pogledu programiranja predstavlja korištenje neke metode ili algoritma za izračun koliko je dobro koje stanje igre, te nam tako pomaže kod odabira najboljeg poteza. Ta metoda ili algoritam nemora biti ni logički smislena za zadatak niti objašnjiva zašto bismo je koristili, već samo ako je vidljivo kroz njezino korištenje da uspijeva povećati ukupan prosječan broj bodova istanci igre, znamo da je dobra i vrijedna korištenja.
+
+U pogledu na promatranu igru entanglement lako se mogu odrediti svojstva poteza o kojima ovisi konačan rezultat igre, te ću temeljem na njima izgraditi neke heuristike. Takva promatrana svojstva su nalazi li se zid na nekom od mogućih puteva pločice koju trenutno postavljamo, koliki dug lanac dobijemo na nekom putu, te kolika je popunjenost ploče. 
+
+
+-- TODO objasnjenje neuronskih
 
 
 
-\section{Razvojno okruženje za implementaciju agenata}
+\section{Razvojno okruženje za implementaciju heuristika i agenata}
 \label{pog:razvojno_okruzenje}
 
 
 Sljedeći korak na mom putu bio je pronalazak verzije igre čiji kod mogu mijenjati po želji. Naime, kod originalne online verzije igre jest skriven i na njega se ne može jednostavno priključiti. Kako bih uspjela u implementaciji različitih heuristika i agenata i vidjela kako utječu na igru, potreban mi je izvorni kod igre s istim pravilima. Takav je pronađen u GitHub repozitoriju \cite{entanglementgithub} entanglement osobe Brian Shaginaw.
 
 Ovaj repozitorij pisan je u Pythonu 2, pa je prva stvar kod spajanja na izvorni kod bila mijenjanje i prilagođavanje koda da radi s Pythonom verzije 3. Ovaj korak izveden je relativno brzo, te je sljedeći dio zauzeo puno više vremena, a to je proučavanje i pokušavanje spajanja na kod te istraživanje što su to heuristike i kako ih uspješno implementirati. 
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.58\linewidth]{Figures/gamefinished.png} 
+	\caption{Prikaz preuzete igre}
+	\label{slk:game_finished}
+\end{figure}
 
 U kod je bilo potrebno dodati neke nove funkcije. Radi preglednosti i otkrivanja pogrešaka, implementirane su funkcionalnosti pauziranja i izlaska iz programa. Dodana je metoda resetiranja igre, kako bi se, nakon zabijanja konca u zid, umjesto da program završi s radom umjesto toga obrisala ploča, spremili rezultati te započela nova runda igre. Također, dodana je metoda koja na temelju ulaza obavlja jedan korak igre (postavljanje pločice.)
 
@@ -144,9 +166,9 @@ U kod je bilo potrebno dodati neke nove funkcije. Radi preglednosti i otkrivanja
 \section{Definicija stanja igre, ploče, opasnosti i koraka}
 \label{pog:definicija_stanja}
 
-Kako bismo mogli birati optimalne korake od onih mogučih, nekako moramo definirati koliko nam je svaki korak vrijedan. Vrijednost koraka ovisit će o trenutnom stanju igre. Naime, pločica se ne nalazi u istoj situaciji ako je okružena praznim poljima, ili ako je samo jedno neposredno mjesto uz nju prazno. Zato moramo prikupiti informacije iz izgleda same ploče u neku strukturu koju će nam biti lakše obraditi.
+Kako bismo mogli birati optimalne korake od onih mogućih, nekako moramo definirati koliko nam je svaki korak vrijedan. Vrijednost koraka ovisit će o trenutnom stanju igre. Naime, pločica se ne nalazi u istoj situaciji ako je okružena praznim poljima, ili ako je samo jedno neposredno mjesto uz nju prazno. Zato moramo prikupiti informacije iz izgleda same ploče u neku strukturu koju će nam biti lakše obraditi.
 
-Stanje igre temeljit ćemo na već postoječim tipu podataka u kodu nazvanoj Board, što je klasa koja predstavlja igraću ploču (Slika \ref{slk:class_diagram}).
+Stanje igre temeljit ćemo na već postojećim tipu podataka u kodu nazvanoj Board, što je klasa koja predstavlja igraću ploču (Slika \ref{slk:class_diagram}).
 
 \begin{figure}[htb]
 	\centering
@@ -154,31 +176,74 @@ Stanje igre temeljit ćemo na već postoječim tipu podataka u kodu nazvanoj Boa
 	\caption{Dijagram razreda Board i Tile}
 	\label{slk:class_diagram}
 \end{figure}
- 
-Stanje igre određeno je s nekoliko stvari vidljivih na ekranu tijekom igre: 
 
-- koliko ploča jest prazno, ili alternativno, već postavljeno i na kojem mjestu
-- gdje nam se nalazi završetak konca; na to mjesto u sljedećem koraku postavljamo novu pločicu
-- smjerovi konaca i pozicije svake već do tad postavljene ploče
-- izgled zamjenske pločice
+Unutar te klase imamo mnoštvo atributa:
+\begin{itemize}
+	\item[board] lista svih pločica, te svaka od njih pamti svoju vrstu (otvorena, zatvorena, start-pločica ili igraća), te ako je igraća, izgled svojih konaca i par osvijetljenih konaca.
+	\item[entry] iz kojeg od 12 smjerova na pločicu koja se trenutno postavlja dolazi osvijetljeni konac
+	\item[x i y] koordinate pločice koja se trenutno postavlja
+	\item[curr tile] trenutna pločica
+	\item[swap tile] zamjenska pločica
+	\item[score] do sad skupljeni broj bodova
+	\item[dirty] je li igra započeta, je li ikoja pločica postavljena na ploču
+\end{itemize}
+
+Stanje igre jest dugo polje cjelobrojnih varijabli izračunatih uz pomoć ploče igre. Za svaki od 12 smjerova one pločice na koje trenutne koordinate pokazuju, izračunava se duljina puta do sljedećeg praznog mjesta (0 ako je to mjesto odmah susjedno trenutnim koordinatama, 1 ili više ako prvo vodi kroz već postavljene ploče prije praznog mjesta), je li taj smjer opasan ili ne, koje su koordinate praznog polja na kojem će završiti, koji su smjerovi već izgeneriranih trenutne i zamjenske pločice. Različito stanje igre jest potrebno za različite heuristike, te će kasnije kod opisa svake biti objašnjena i struktura polja stanja igre.
+
+Opasnost definiramo kao onaj potez koji dovodi do kraja igre. Od četiri moguća tipa pločica, zatvorena i start-pločica su opasne i kad vrh konca dođe do njih igra završava. Ako bi potez vodio konac na neki smjer koji pokazuje na igraću pločicu, potrebno je rekurzivnim algoritmom odrediti u kojem tipu pločice se nalazi njegov završetak. Tada možemo odrediti je li taj smjer opasan ili ne.
+
+Jedan korak, ili jedan potez, sastoji se od postavljanjem ili nepostavljanjem zastavice za mijenjanje trenutne pločice sa zamjenskom, te rotiranja izabrane u smjeru kazaljke na satu za neki cjelobrojni broj od 0 do 5.
 
 
 \section{Biranje koraka slučajnim odabirom}
 \label{pog:slucajan_odabir}
 
-Kako bismo imali nešto s čime dalje možemo uspoređivati efektivnost koje heuristike pogledati će mo što se događa sa igrom ako joj prepustimo odabir svakog sljedećeg koraka slučajnom odabiru. Nakon 100 koraka igre, vidljivo je da se rezultat kreće oko ... na grafu priloženom ispod.
+Kako bismo imali nešto s čime dalje možemo uspoređivati efektivnost koje heuristike pogledat ćemo što se događa s igrom ako joj prepustimo odabir svakog sljedećeg koraka slučajnom odabiru. Nakon 100 koraka igre, vidljivo je da se rezultat kreće oko 9 bodova na grafu priloženom na slici \ref{slk:random_graph}.
+
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.68\linewidth]{Figures/random.png} 
+	\caption{Graf slučajnog odabira poteza nakon 100 instanci igre}
+	\label{slk:random_graph}
+\end{figure}
 
 
 \subsection{Neposredna heuristika}
 \label{pog:neposredna}
 
 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.68\linewidth]{Figures/sofort.png} 
+	\caption{Graf neposredne heuristike nakon 100 instanci igre}
+	\label{slk:sofort_graph}
+\end{figure}
+
+
 \subsection{Dubinska heuristika sa slučajnim odabirom}
-\label{pog:neposredna}
+\label{pog:dubinska_slucajna}
+
+
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.68\linewidth]{Figures/reach.png} 
+	\caption{Graf dubinske heuristike (slučajne) nakon 100 instanci igre}
+	\label{slk:reach_graph}
+\end{figure}
 
 
 \subsection{Dubinska heuristika sa izračunavanjem najduljeg puta}
-\label{pog:neposredna}
+\label{pog:dubinska}
+
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.68\linewidth]{Figures/depth.png} 
+	\caption{Graf dubinske heuristike nakon 100 instanci igre}
+	\label{slk:depth_graph}
+\end{figure}
 
 
 %-------------------------------------------------------------------------------
