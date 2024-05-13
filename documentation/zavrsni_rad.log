@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.4.27)  12 MAY 2024 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.4.27)  13 MAY 2024 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -827,7 +827,7 @@ l.66 \chapter
 
 ]
 Poglavlje 1..
-<Figures/lenovo_yoga_tab3_pro_front.png, id=110, 562.1pt x 346.29375pt>
+<Figures/lenovo_yoga_tab3_pro_front.png, id=115, 562.1pt x 346.29375pt>
 File: Figures/lenovo_yoga_tab3_pro_front.png Graphic file (type png)
 <use Figures/lenovo_yoga_tab3_pro_front.png>
 Package pdftex.def Info: Figures/lenovo_yoga_tab3_pro_front.png  used on input 
@@ -863,7 +863,7 @@ e
 e 115.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
 (Font)              scaled to size 16.0pt on input line 115.
-<Figures/game.png, id=137, 1846.9pt x 1618.045pt>
+<Figures/game.png, id=142, 1846.9pt x 1618.045pt>
 File: Figures/game.png Graphic file (type png)
 <use Figures/game.png>
 Package pdftex.def Info: Figures/game.png  used on input line 123.
@@ -871,73 +871,74 @@ Package pdftex.def Info: Figures/game.png  used on input line 123.
 [4
 
  <./Figures/game.png>] [5]
-<Figures/gamefinished.png, id=151, 600.2425pt x 612.2875pt>
+<Figures/gamefinished.png, id=156, 600.2425pt x 612.2875pt>
 File: Figures/gamefinished.png Graphic file (type png)
 <use Figures/gamefinished.png>
 Package pdftex.def Info: Figures/gamefinished.png  used on input line 157.
 (pdftex.def)             Requested size: 255.79108pt x 260.92412pt.
  [6 <./Figures/gamefinished.png>]
-<Figures/board_diagram.png, id=160, 1233.10687pt x 673.01437pt>
+<Figures/board_diagram.png, id=165, 1233.10687pt x 673.01437pt>
 File: Figures/board_diagram.png Graphic file (type png)
 <use Figures/board_diagram.png>
 Package pdftex.def Info: Figures/board_diagram.png  used on input line 175.
 (pdftex.def)             Requested size: 299.88882pt x 163.67303pt.
  [7 <./Figures/board_diagram.png (PNG copy)>]
-<Figures/random.png, id=168, 1174.3875pt x 844.15375pt>
+<Figures/random.png, id=173, 1174.3875pt x 844.15375pt>
 File: Figures/random.png Graphic file (type png)
 <use Figures/random.png>
 Package pdftex.def Info: Figures/random.png  used on input line 206.
 (pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
-<Figures/sofort.png, id=169, 1174.3875pt x 844.15375pt>
+ [8]
+<Figures/sofort.png, id=180, 1174.3875pt x 844.15375pt>
 File: Figures/sofort.png Graphic file (type png)
 <use Figures/sofort.png>
-Package pdftex.def Info: Figures/sofort.png  used on input line 218.
+Package pdftex.def Info: Figures/sofort.png  used on input line 223.
 (pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
-<Figures/reach.png, id=170, 1174.3875pt x 844.15375pt>
+<Figures/reach.png, id=182, 1174.3875pt x 844.15375pt>
 File: Figures/reach.png Graphic file (type png)
 <use Figures/reach.png>
-Package pdftex.def Info: Figures/reach.png  used on input line 231.
+Package pdftex.def Info: Figures/reach.png  used on input line 236.
 (pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
-<Figures/depth.png, id=171, 1174.3875pt x 844.15375pt>
+ [9 <./Figures/random.png> <./Figures/sofort.png>]
+<Figures/depth.png, id=191, 1174.3875pt x 844.15375pt>
 File: Figures/depth.png Graphic file (type png)
 <use Figures/depth.png>
-Package pdftex.def Info: Figures/depth.png  used on input line 243.
+Package pdftex.def Info: Figures/depth.png  used on input line 249.
 (pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
- [8] [9 <./Figures/random.png> <./Figures/sofort.png>] [10 <./Figures/reach.png
-> <./Figures/depth.png>]
+ [10 <./Figures/reach.png> <./Figures/depth.png>]
 Poglavlje 3..
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 254.
+(blindtext)                 on input line 260.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 254.
+(blindtext)                 on input line 260.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 254.
+(blindtext)                 on input line 260.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 254.
+(blindtext)                 on input line 260.
 
 [11
 
 ]
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 254.
+(blindtext)                 on input line 260.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 254.
+(blindtext)                 on input line 260.
 
 [12]
 Poglavlje 4..
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 261.
+(blindtext)                 on input line 267.
 
 (./zavrsni_rad.bbl [13
 
@@ -946,7 +947,7 @@ Package blindtext Warning: croatian not defined, using English instead.
 ]
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 278.
+(blindtext)                 on input line 284.
 
 [15
 
@@ -957,24 +958,24 @@ pdfTeX warning (ext4): destination with the same identifier (name{chapter.1}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.302 \chapter{The Code}
+l.308 \chapter{The Code}
                         
 Privitak A.
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 305.
+(blindtext)                 on input line 311.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 305.
+(blindtext)                 on input line 311.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 305.
+(blindtext)                 on input line 311.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 305.
+(blindtext)                 on input line 311.
 
 [17
 
@@ -982,11 +983,11 @@ Package blindtext Warning: croatian not defined, using English instead.
 ]
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 305.
+(blindtext)                 on input line 311.
 
 
 Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 305.
+(blindtext)                 on input line 311.
 
 [18] (./zavrsni_rad.aux)
 
@@ -1107,13 +1108,13 @@ zavrsni_rad.bbl
  ***********
 
 Package rerunfilecheck Info: File `zavrsni_rad.out' has not changed.
-(rerunfilecheck)             Checksum: 424BB5F7BA781450E91C1E2BB6D98081;2879.
+(rerunfilecheck)             Checksum: F6F751828B6CEA8B352138DF19991440;3062.
  ) 
 Here is how much of TeX's memory you used:
- 18091 strings out of 477344
- 281480 string characters out of 5823094
- 1857388 words of memory out of 5000000
- 37965 multiletter control sequences out of 15000+600000
+ 18094 strings out of 477344
+ 281520 string characters out of 5823094
+ 1858388 words of memory out of 5000000
+ 37967 multiletter control sequences out of 15000+600000
  592440 words of font info for 134 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
  87i,6n,131p,705b,625s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1124,10 +1125,10 @@ share/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></usr/share
 /type1/public/stix2-type1/STIX2Text-Italic.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/stix2-type1/STIX2Text-Regular.pfb></usr/share/texmf-dist/fonts/type1/
 public/cm-super/sftt1200.pfb>
-Output written on zavrsni_rad.pdf (21 pages, 7142545 bytes).
+Output written on zavrsni_rad.pdf (21 pages, 7144407 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 235 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

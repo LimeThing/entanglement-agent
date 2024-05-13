@@ -10,6 +10,10 @@ Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 150 items from 100.
 Database file #1: literatura.bib
+Repeated entry---line 138 of file literatura.bib
+ : @misc{entanglementgithub
+ :                         ,
+I'm skipping whatever remains of this entry
 You've used 8 entries,
             4225 wiz_defined-function locations,
             877 strings with 8818 characters,
@@ -51,3 +55,4 @@ warning$ -- 0
 while$ -- 17
 width$ -- 9
 write$ -- 95
+(There was 1 error message)

@@ -8,9 +8,10 @@
 \contentsline {section}{\numberline {2.3.}Razvojno okruženje za implementaciju heuristika i agenata}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4.}Definicija stanja igre, ploče, opasnosti i koraka}{7}{section.2.4}%
 \contentsline {section}{\numberline {2.5.}Biranje koraka slučajnim odabirom}{8}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1.}Neposredna heuristika}{8}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2.}Dubinska heuristika sa slučajnim odabirom}{8}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3.}Dubinska heuristika sa izračunavanjem najduljeg puta}{8}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6.}Implementirane heuristike}{8}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1.}Neposredna heuristika}{8}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2.}Dubinska heuristika sa slučajnim odabirom}{9}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3.}Dubinska heuristika sa izračunavanjem najduljeg puta}{10}{subsection.2.6.3}%
 \contentsline {chapter}{\numberline {3.}Rezultati i rasprava}{11}{chapter.3}%
 \contentsline {chapter}{\numberline {4.}Zaključak}{13}{chapter.4}%
 \contentsline {chapter}{Literatura}{14}{chapter*.10}%

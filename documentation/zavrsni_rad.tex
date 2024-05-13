@@ -135,9 +135,9 @@ Jednom kada se trenutna pločica zamjeni sa zamjenskom, tamo će ostati do sljed
 \label{pog:opis_heuristika_i_neuronskih}
 
 
-Heuristika ili heuristička tehnika u pogledu programiranja predstavlja korištenje neke metode ili algoritma za izračun koliko je dobro koje stanje igre, te nam tako pomaže kod odabira najboljeg poteza. Ta metoda ili algoritam nemora biti ni logički smislena za zadatak niti objašnjiva zašto bismo je koristili, već samo ako je vidljivo kroz njezino korištenje da uspijeva povećati ukupan prosječan broj bodova istanci igre, znamo da je dobra i vrijedna korištenja.
+Heuristika ili heuristička tehnika u pogledu programiranja predstavlja korištenje neke metode ili algoritma za izračun koliko je dobro koje stanje igre, te nam tako pomaže kod odabira najboljeg poteza. Ta metoda ili algoritam ne mora u svakom slučaju dati najbolji rezultat, te njen izračun ne mora imati nužno logičko objašnjenje zašto se koristi. Dovoljno je samo da nam ubrzala proces traženja sljedećih poteza ili pridonosi većem ukupnom broju bodova na kraju igre.
 
-U pogledu na promatranu igru entanglement lako se mogu odrediti svojstva poteza o kojima ovisi konačan rezultat igre, te ću temeljem na njima izgraditi neke heuristike. Takva promatrana svojstva su nalazi li se zid na nekom od mogućih puteva pločice koju trenutno postavljamo, koliki dug lanac dobijemo na nekom putu, te kolika je popunjenost ploče. 
+U pogledu na promatranu igru entanglement lako se mogu odrediti svojstva poteza o kojima ovisi rezultat igre, te ću na temelju na njima izgraditi neke heuristike. Takva promatrana svojstva su nalazi li se zid na nekom od mogućih puteva pločice koju trenutno postavljamo, koliki dug lanac dobijemo na nekom putu, te kolika je popunjenost ploče. 
 
 
 -- TODO objasnjenje neuronskih
@@ -208,10 +208,15 @@ Kako bismo imali nešto s čime dalje možemo uspoređivati efektivnost koje heu
 	\label{slk:random_graph}
 \end{figure}
 
+\section{Implementirane heuristike}
+\label{pog:heuristics}
 
 \subsection{Neposredna heuristika}
 \label{pog:neposredna}
 
+Prva heuristika koju promatramo stanje igre izračunava kao polje od svega šest cjelobrojnih vrijednosti. Svaka varijabla poprima vrijednost 0 ili 1, gdje nula označava da je taj smjer neposredno siguran, te jedinica označava da nije. Ako se neposredno od trenutne pločice pojavi već postavljena pločica, heuristika je smatra sigurnom. Zbog toga program u često mnogo slučajeva završi prije nego što popuni cijelu ploču.
+
+Igra računa sljedeći potez tako da slučajnim odabirom izabere za koliko će se rotirati trenutna pločica, te provjeri je ti takav potez opasan. Ako je, izračunava se novi potez, te ako su svi potezi nesigurni, mijenja se trenutna pločica sa zamjenskom. Ovakva heuristika pridonosi rezultatu od prosječno 25 bodova, vidljivo na slici \ref{slk:sofort_graph}
 
 \begin{figure}[htb]
 	\centering
@@ -224,7 +229,7 @@ Kako bismo imali nešto s čime dalje možemo uspoređivati efektivnost koje heu
 \subsection{Dubinska heuristika sa slučajnim odabirom}
 \label{pog:dubinska_slucajna}
 
-
+S ovom heuristikom proširujem stanje igre na izračunavanje vode li i već postavljene igraće ploče u opasnost. Odabir poteza radi na isti način kao i u prijašnjem orimjeru, te se sad prosječan broj bodova podigao na čak 75 te se ploča u većini slučajeva popuni barem 80 posto [Slika \ref{slk:reach_graph}].
 
 \begin{figure}[htb]
 	\centering
@@ -237,6 +242,7 @@ Kako bismo imali nešto s čime dalje možemo uspoređivati efektivnost koje heu
 \subsection{Dubinska heuristika sa izračunavanjem najduljeg puta}
 \label{pog:dubinska}
 
+Umjesto da bira potez slučajnim odabirom, ova heuristika prolazi kroz sve puteve koje je moguće doseći sa trenutnom i zamjenskom pločicom te od njih uzima onaj koji pridonosi najviše bodova instanci igre. Prosjek sakupljenih upupnih bodova sada je 91 [Slika \ref{slk:depth_graph}].
 
 \begin{figure}[htb]
 	\centering
