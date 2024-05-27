@@ -87,25 +87,23 @@ class Game(object):
         pygame.quit()
 
     def play_step(self, step):
+        old_score = self.board.score
         if self.done:
             pygame.quit()
-        # time.sleep(0.2)
-        if step[1] == 1:
-            self.board.swap()
-        # self.board.rotate(int(step[0]))
-
-        self.board.rotate(step[0])
+        # print(step)
+        for i in range(0, 6):
+            if step[i] == 1:
+                self.board.rotate(i)
+                # print(i)
         keep_playing = self.board.place()
-        if keep_playing is not False:
-            print(keep_playing)
 
         self.screen.fill((0,) * 3)
         self.ui.update()
         self.ui.reblit(self.screen)
         pygame.display.flip()
         if keep_playing:
-            return 0, False, self.board.score
-        return self.board.score, True, self.board.score
+            return 1, False, self.board.score
+        return 0, True, self.board.score
 
 
 class Reader(Thread):
@@ -119,7 +117,7 @@ class Reader(Thread):
 
     def run(self):
         keep_playing = True
-        print(self.board.swap_tile, "|", self.board.cur_tile)
+        # print(self.board.swap_tile, "|", self.board.cur_tile)
         while not self.kill and keep_playing:
             inp = input(">")
             if inp == "quit":
@@ -130,10 +128,33 @@ class Reader(Thread):
                     self.board.swap()
                 self.board.rotate(int(matchobj.group(2)))
                 keep_playing = self.board.place()
-                if keep_playing is not False:
-                    print(keep_playing)
             else:
                 print("Malformed input.")
+
+    def play_step(self, step):
+        old_score = self.board.score
+        if not self.kill:
+            pygame.quit()
+        # time.sleep(0.2)
+        # if step[1] == 1:
+        #     self.board.swap()
+        # self.board.rotate(int(step[0]))
+        #print(step)
+        for i in range (0,6):
+            if step[i] == 1:
+                self.board.rotate(i)
+        #        print(i)
+        for i in range (0,6):
+            if step[i+6] == 1:
+                self.board.swap()
+                self.board.rotate(i)
+        keep_playing = self.board.place()
+        if keep_playing:
+            return self.board.score - old_score, False, self.board.score
+        return 0, True, self.board.score
+
+    def reset(self):
+        self.board = Board()
 
 
 if __name__ == "__main__":

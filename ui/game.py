@@ -86,7 +86,7 @@ class GameUI(UI):
                     connections[k][l] = j.connects.items()
                     l += 1
                 k += 1
-            print(connections)
+            # print(connections)
         if event.key == pygame.K_p:
             pygame.event.post(self.pause_event)
 

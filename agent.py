@@ -14,7 +14,7 @@ from helper import plot
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
-LR = 0.001
+LR = 0.01
 
 
 class Agent:
@@ -24,7 +24,7 @@ class Agent:
         self.epsilon = 0  # randomness parameter
         self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Linear_QNet(73, 256, 7)
+        self.model = Linear_QNet(73, 40, 40, 7)
         self.trainer = QTrainer(self.model, learning_rate=LR, gamma=self.gamma)
 
     def get_state(self, game: Game):
@@ -234,7 +234,6 @@ class Agent:
             move_prediction = prediction[0:6]
             swap_prediction = prediction[6]
             move = torch.argmax(move_prediction).item()
-            print(swap_prediction) # you need ot get them outta the tensor
             swap = 1 if torch.argmax(swap_prediction).item() else 0
             final_move[0] = move
             final_move[1] = swap
@@ -275,7 +274,7 @@ def train():
                     record = score
                     agent.model.save()
 
-                print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
+                # print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
 
                 plot_scores.append(score)
                 total_score += score

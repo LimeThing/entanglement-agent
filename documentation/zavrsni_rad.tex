@@ -109,14 +109,14 @@ Zadatci:
 
 
 %-------------------------------------------------------------------------------
-\chapter{Glavni dio}
+\chapter{Objašnjenja pojmova}
 \label{pog:glavni_dio}
 
 \section{O igri Entanglement}
 \label{pog:o_igri}
 
 
-Igra Entanglement jest online igra koju su napravili \cite{gopherwoodstudios} Gopherwood Studios. Igra se sastoji od velike igrače ploče s heksagonalnim izrezima u koje se postavljaju pločice. Igra kreče od središnje, već postavljene pločice. Na njoj je vidljiv "konac" izrazite boje, ovdje je crven te će u kasnijim primjerima biti žarko zelen.
+Igra Entanglement jest online igra koju su napravili Gopherwood Studios \cite{gopherwoodstudios}. Igra se sastoji od velike igrače ploče s heksagonalnim izrezima u koje se postavljaju pločice. Igra kreče od središnje, već postavljene pločice. Na njoj je vidljiv "konac" izrazite boje, ovdje je crven te će u kasnijim primjerima biti žarko zelen.
 
 \begin{figure}[htb]
 	\centering
@@ -131,24 +131,40 @@ Ako put konca ne završi u praznom polju, već u startnom polju ili na granici, 
 
 Jednom kada se trenutna pločica zamjeni sa zamjenskom, tamo će ostati do sljedeće zamjene. Cilj igre jest skupiti što je moguće više bodova prije no što se popune sve prazne pločice ili se konac "zabije" u neku od granica. U oba slučaja, krajnji bodovi isti su sveukupnim do tada akumuliranim bodovima kroz igru. Trenutno najveći broj bodova ikad sakupljen jest 5403.
 
-\section{Definicija heuristika i neuronskih mreža}
-\label{pog:opis_heuristika_i_neuronskih}
+\section{Agent umjetne inteligencije}
+\label{pog:agent}
+Agent u pogledu strojnog učenja jest program koji interaktira s našom igrom, od nje dobiva, skuplja i pamti informacije, te na temelju njih odlučuje koji korak će sljedeće izvršiti. Informacije koje od igre dobiva su stanja ploče prije svakog koraka, te nakon izvršenja poteza koliko bodova je bio vrijedan izvršeni potez.
+
+Promotrit ćemo dvije temeljne vrste agenata; Oni koji biraju sljedeći potez na temelju samo trenutno dobivenog stanja i priloženim skupom pravila (heuristike). Te onaj koji o sljedećem potezu odlučuje na temelju na svim do sad sakupljenim stanjima i rezultatima, te sam definira funkcije po kojima će izabrati sljedeći korak (umjetne neuronske mreže). 
+
+\section{Heuristike}
+\label{pog:opis_heuristika}
 
 
 Heuristika ili heuristička tehnika u pogledu programiranja predstavlja korištenje neke metode ili algoritma za izračun koliko je dobro koje stanje igre, te nam tako pomaže kod odabira najboljeg poteza. Ta metoda ili algoritam ne mora u svakom slučaju dati najbolji rezultat, te njen izračun ne mora imati nužno logičko objašnjenje zašto se koristi. Dovoljno je samo da nam ubrzala proces traženja sljedećih poteza ili pridonosi većem ukupnom broju bodova na kraju igre.
 
-U pogledu na promatranu igru entanglement lako se mogu odrediti svojstva poteza o kojima ovisi rezultat igre, te ću na temelju na njima izgraditi neke heuristike. Takva promatrana svojstva su nalazi li se zid na nekom od mogućih puteva pločice koju trenutno postavljamo, koliki dug lanac dobijemo na nekom putu, te kolika je popunjenost ploče. 
-
-
--- TODO objasnjenje neuronskih
+U pogledu na promatranu igru entanglement lako se mogu odrediti svojstva poteza o kojima ovisi rezultat igre, te će kasnije u tekstu biti razmatrane heuristike temeljene na istima. Takva promatrana svojstva su nalazi li se zid na nekom od mogućih puteva pločice koju trenutno postavljamo, koliki dug lanac dobijemo na nekom putu, te kolika je popunjenost ploče. 
 
 
 
-\section{Razvojno okruženje za implementaciju heuristika i agenata}
+\section{Umjetne neuronske mreže}
+\label{pog:opis_neuronskih}
+
+Kako bi agent mogao sam na temelju obrađenih sakupljenih podataka mogao raditi najbolje odluke bez unaprijed zadanih pravila, na neki način more biti u stanju učiti na temelju podataka. Za takvo učenje koriste se umjetne neuronske mreže. Izgrađene na temelju rada ljudskih neurona, jedan umjetni neuron uzima varijable na ulazu, te nad njima obavlja neku funkciju. Iz izlaza neurona računa se sljedeći potez igre, te se varijable funkcije neurona mijenjaju i ispravljaju nakon svake završene igre na temelju do tad sakupljenih podataka, tako da se teži najboljem rezultatu. 
+
+Umjetna neuronska mreža skupina je takvih međusobno povezanih umjetnih neurona. Povezujemo ih u različite slojeve, gdje se prvi takvi naziva ulazni sloj, zadnji izlazni, te, oni koji su između, skriveni. Nakon svake dovršene igre svaki neuron mijenja vrijednosti svojih funkcija kako bi dobio što bolji rezultat u budućnosti.
+
+//TODO ljepa slikica
+
+
+\chapter{Pojedinosti implementacije}
+\label{pog:glavni_dio2}
+
+\section{Razvojno okruženje za implementaciju agenata}
 \label{pog:razvojno_okruzenje}
 
 
-Sljedeći korak na mom putu bio je pronalazak verzije igre čiji kod mogu mijenjati po želji. Naime, kod originalne online verzije igre jest skriven i na njega se ne može jednostavno priključiti. Kako bih uspjela u implementaciji različitih heuristika i agenata i vidjela kako utječu na igru, potreban mi je izvorni kod igre s istim pravilima. Takav je pronađen u GitHub repozitoriju \cite{entanglementgithub} entanglement osobe Brian Shaginaw.
+Razvojno okruženje porebno za razvijanje agenata mora biti lako dostupan i izmjenjiv kod igre na koji se agent može priključiti. Naime, kod originalne online verzije igre jest skriven te je to nemoguće. Potreban je izvorni kod igre s istim pravilima. Takav je pronađen u GitHub repozitoriju \cite{entanglementgithub} entanglement osobe Brian Shaginaw.
 
 Ovaj repozitorij pisan je u Pythonu 2, pa je prva stvar kod spajanja na izvorni kod bila mijenjanje i prilagođavanje koda da radi s Pythonom verzije 3. Ovaj korak izveden je relativno brzo, te je sljedeći dio zauzeo puno više vremena, a to je proučavanje i pokušavanje spajanja na kod te istraživanje što su to heuristike i kako ih uspješno implementirati. 
 
@@ -194,6 +210,8 @@ Opasnost definiramo kao onaj potez koji dovodi do kraja igre. Od četiri moguća
 
 Jedan korak, ili jedan potez, sastoji se od postavljanjem ili nepostavljanjem zastavice za mijenjanje trenutne pločice sa zamjenskom, te rotiranja izabrane u smjeru kazaljke na satu za neki cjelobrojni broj od 0 do 5.
 
+\chapter{Razrada zadatka}
+\label{pog:razrada_zadatka}
 
 \section{Biranje koraka slučajnim odabirom}
 \label{pog:slucajan_odabir}
@@ -239,7 +257,7 @@ S ovom heuristikom proširujem stanje igre na izračunavanje vode li i već post
 \end{figure}
 
 
-\subsection{Dubinska heuristika sa izračunavanjem najduljeg puta}
+\subsection{Dubinska heuristika s izračunavanjem najduljeg puta}
 \label{pog:dubinska}
 
 Umjesto da bira potez slučajnim odabirom, ova heuristika prolazi kroz sve puteve koje je moguće doseći sa trenutnom i zamjenskom pločicom te od njih uzima onaj koji pridonosi najviše bodova instanci igre. Prosjek sakupljenih upupnih bodova sada je 91 [Slika \ref{slk:depth_graph}].
@@ -251,10 +269,19 @@ Umjesto da bira potez slučajnim odabirom, ova heuristika prolazi kroz sve putev
 	\label{slk:depth_graph}
 \end{figure}
 
+\section{Implementirane umjetne neuronske mreže}
+\label{pog:neuronske}
+Problem na koji se nailazi kod implementacije neuronskih mreža jest optimizacija postupka učenja. Naime, veličina polja ulaza te broj neurona u mreži utječi proporcionalno na vrijeme potrebno za izučavanje neuronske mreže do optimuma. Zbog toga minimiziramo navedene aspekte problema toliko dokle ne opada optimum rješenja.
+
+\subsection{Umjetna neuronska mreža s izbjegavanjem opasnosti}
+\label{pog:neuronska_opasnost}
+
+\subsection{Umjetna neuronska mreža s informacijom o najduljem putu}
+\label{pog:neuronska_najdulji}
 
 %-------------------------------------------------------------------------------
-\chapter{Rezultati i rasprava}
-\label{pog:rezultati_i_rasprava}
+\chapter{Usporedba rezultata}
+\label{pog:usporedba_rezultata}
 
 \Blindtext
 

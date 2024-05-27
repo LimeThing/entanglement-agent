@@ -219,22 +219,23 @@ class Agent:
         self.trainer.train_step(state, action, reward, next_state, game_over)
 
     def get_action(self, state):
-        self.epsilon = 80 - self.number_of_games
+        self.epsilon = 200 - self.number_of_games
         final_move = [0, 0]
         modified_move = [0, 0, 0, 0, 0, 0, 0]
 
         if random.randint(0, 200) < self.epsilon:
+            print("random state selected.")
             final_move[0] = random.randint(0, 5)
             final_move[1] = random.randint(0, 1)
             modified_move[final_move[0]] = 1
             modified_move[6] = final_move[1]
         else:
+            print("state calculated.")
             state0 = torch.tensor(state, dtype=torch.float)
             prediction = self.model(state0)
             move_prediction = prediction[0:6]
             swap_prediction = prediction[6]
             move = torch.argmax(move_prediction).item()
-            print(swap_prediction) # you need ot get them outta the tensor
             swap = 1 if torch.argmax(swap_prediction).item() else 0
             final_move[0] = move
             final_move[1] = swap
@@ -260,7 +261,6 @@ def train():
         if not paused:
             state_old = agent.get_state(game)  # get old state
             final_move = agent.get_action(state_old)  # new move
-            print(final_move)
             reward, game_over, score = game.play_step(final_move)  # perform move
             state_new = agent.get_state(game)  # get new state after previous move
             agent.train_short_memory(state_old, final_move, reward, state_new, game_over)
@@ -276,7 +276,7 @@ def train():
                     record = score
                     agent.model.save()
 
-                print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
+                # print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
 
                 plot_scores.append(score)
                 total_score += score
