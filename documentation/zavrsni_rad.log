@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.5.15)  27 MAY 2024 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.5)  12 JUN 2024 01:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -715,96 +715,19 @@ Package hyperref Info: Link coloring OFF on input line 35.
 \@outlinefile=\write3
 \openout3 = `zavrsni_rad.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+opensans-TLF on inpu
-t line 39.
- (/usr/share/texmf-dist/tex/latex/opensans/T1opensans-TLF.fd
-File: T1opensans-TLF.fd 2019/06/24 Font definitions for T1/opensans-TLF.
-)
-LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 14.0pt on input line 39.
-LaTeX Font Info:    Font shape `T1/opensans-TLF/bx/n' in size <14> not availabl
-e
-(Font)              Font shape `T1/opensans-TLF/b/n' tried instead on input lin
-e 39.
-LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 14.0pt on input line 39.
-LaTeX Font Info:    Font shape `T1/opensans-TLF/bx/n' in size <20> not availabl
-e
-(Font)              Font shape `T1/opensans-TLF/b/n' tried instead on input lin
-e 39.
-LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 20.0pt on input line 39.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 39.
-LaTeX Font Info:    Trying to load font information for LS1+stix2scr on input l
-ine 39.
- (/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2scr.fd
-File: ls1stix2scr.fd 2018/04/02 v2.0.0-latex stix2 script LS1 font definitions
-)
-LaTeX Font Info:    Trying to load font information for LS2+stix2ex on input li
-ne 39.
-
-(/usr/share/texmf-dist/tex/latex/stix2-type1/ls2stix2ex.fd
-File: ls2stix2ex.fd 2018/04/02 v2.0.0-latex stix2 extentions LS2 font definitio
-ns
-)
-LaTeX Font Info:    Trying to load font information for LS1+stix2frak on input 
-line 39.
-
-(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2frak.fd
-File: ls1stix2frak.fd 2018/04/02 v2.0.0-latex stix2 fraktur LS1 font definition
-s
-)
-LaTeX Font Info:    Trying to load font information for LS1+stix2bb on input li
-ne 39.
-
-(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2bb.fd
-File: ls1stix2bb.fd 2018/04/02 v2.0.0-latex stix2 blackboard LS1 font definitio
-ns
-)
-LaTeX Font Info:    Trying to load font information for LS2+stix2cal on input l
-ine 39.
-
-(/usr/share/texmf-dist/tex/latex/stix2-type1/ls2stix2cal.fd
-File: ls2stix2cal.fd 2018/04/02 v2.0.0-latex stix2 calligraphic LS2 font defini
-tions
-)
-LaTeX Font Info:    Trying to load font information for LS1+stix2sf on input li
-ne 39.
-
-(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2sf.fd
-File: ls1stix2sf.fd 2018/04/02 v2.0.0-latex stix2 sans-serif LS1 font definitio
-ns
-)
-LaTeX Font Info:    Trying to load font information for LS2+stix2tt on input li
-ne 39.
-
-(/usr/share/texmf-dist/tex/latex/stix2-type1/ls2stix2tt.fd
-File: ls2stix2tt.fd 2018/04/02 v2.0.0-latex stix2 typewriter LS2 font definitio
-ns
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
-
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
-
-
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
-/enc/dvips/opensans/a_jg4h6q.enc}] [2
-
-{/usr/share/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-t1.enc}]
 LaTeX Font Info:    Font shape `T1/stix2/m/sl' in size <12> not available
 (Font)              Font shape `T1/stix2/m/it' tried instead on input line 51.
+ [1
 
-[3
 
-]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
+/enc/dvips/stix2-type1/stix2-t1.enc}]
+LaTeX Font Info:    Trying to load font information for T1+opensans-TLF on inpu
+t line 62.
+
+(/usr/share/texmf-dist/tex/latex/opensans/T1opensans-TLF.fd
+File: T1opensans-TLF.fd 2019/06/24 Font definitions for T1/opensans-TLF.
+)
 LaTeX Font Info:    Font shape `T1/opensans-TLF/bx/n' in size <18> not availabl
 e
 (Font)              Font shape `T1/opensans-TLF/b/n' tried instead on input lin
@@ -812,191 +735,271 @@ e 62.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
 (Font)              scaled to size 18.0pt on input line 62.
  (./zavrsni_rad.toc
+LaTeX Font Info:    Trying to load font information for LS1+stix2scr on input l
+ine 2.
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2scr.fd
+File: ls1stix2scr.fd 2018/04/02 v2.0.0-latex stix2 script LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS2+stix2ex on input li
+ne 2.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls2stix2ex.fd
+File: ls2stix2ex.fd 2018/04/02 v2.0.0-latex stix2 extentions LS2 font definitio
+ns
+)
+LaTeX Font Info:    Trying to load font information for LS1+stix2frak on input 
+line 2.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2frak.fd
+File: ls1stix2frak.fd 2018/04/02 v2.0.0-latex stix2 fraktur LS1 font definition
+s
+)
+LaTeX Font Info:    Trying to load font information for LS1+stix2bb on input li
+ne 2.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2bb.fd
+File: ls1stix2bb.fd 2018/04/02 v2.0.0-latex stix2 blackboard LS1 font definitio
+ns
+)
+LaTeX Font Info:    Trying to load font information for LS2+stix2cal on input l
+ine 2.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls2stix2cal.fd
+File: ls2stix2cal.fd 2018/04/02 v2.0.0-latex stix2 calligraphic LS2 font defini
+tions
+)
+LaTeX Font Info:    Trying to load font information for LS1+stix2sf on input li
+ne 2.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls1stix2sf.fd
+File: ls1stix2sf.fd 2018/04/02 v2.0.0-latex stix2 sans-serif LS1 font definitio
+ns
+)
+LaTeX Font Info:    Trying to load font information for LS2+stix2tt on input li
+ne 2.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ls2stix2tt.fd
+File: ls2stix2tt.fd 2018/04/02 v2.0.0-latex stix2 typewriter LS2 font definitio
+ns
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.26 ...e {chapter}{Sa\v {z}etak}{19}{chapter*.11}
+l.22 ...ine {chapter}{Literatura}{22}{chapter*.22}
                                                   % [1
 
 
-])
+{/usr/share/texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc}])
 \tf@toc=\write4
 \openout4 = `zavrsni_rad.toc'.
 
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.66 \chapter
-             {Uvod} [2]
+ [2]
 Poglavlje 1..
-<Figures/lenovo_yoga_tab3_pro_front.png, id=153, 562.1pt x 346.29375pt>
-File: Figures/lenovo_yoga_tab3_pro_front.png Graphic file (type png)
-<use Figures/lenovo_yoga_tab3_pro_front.png>
-Package pdftex.def Info: Figures/lenovo_yoga_tab3_pro_front.png  used on input 
-line 74.
-(pdftex.def)             Requested size: 167.58888pt x 103.24426pt.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 8
-0.
-(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.93 
-      [3
+[3
 
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/tex
-mf-dist/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/stix2-type1/stix2-mathrm.enc}{/usr/share/texmf-dist/fonts/enc/dvi
-ps/stix2-type1/stix2-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/stix2-ty
-pe1/stix2-mathscr.enc} <./Figures/lenovo_yoga_tab3_pro_front.png>]
-[4]
+]
 Poglavlje 2..
 LaTeX Font Info:    Font shape `T1/opensans-TLF/bx/n' in size <16> not availabl
 e
 (Font)              Font shape `T1/opensans-TLF/b/n' tried instead on input lin
-e 115.
+e 83.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 16.0pt on input line 115.
-<Figures/game.png, id=183, 1846.9pt x 1618.045pt>
+(Font)              scaled to size 16.0pt on input line 83.
+<Figures/game.png, id=140, 1846.9pt x 1618.045pt>
 File: Figures/game.png Graphic file (type png)
 <use Figures/game.png>
-Package pdftex.def Info: Figures/game.png  used on input line 123.
+Package pdftex.def Info: Figures/game.png  used on input line 91.
 (pdftex.def)             Requested size: 255.79108pt x 224.0805pt.
-[5
+[4
 
- <./Figures/game.png>] [6] [7]
+ <./Figures/game.png>]
+<Figures/scoring.png, id=149, 1242.6425pt x 483.8075pt>
+File: Figures/scoring.png Graphic file (type png)
+<use Figures/scoring.png>
+Package pdftex.def Info: Figures/scoring.png  used on input line 102.
+(pdftex.def)             Requested size: 343.99329pt x 133.92966pt.
+<Figures/zamjenska.png, id=150, 335.2525pt x 356.33125pt>
+File: Figures/zamjenska.png Graphic file (type png)
+<use Figures/zamjenska.png>
+Package pdftex.def Info: Figures/zamjenska.png  used on input line 111.
+(pdftex.def)             Requested size: 88.2022pt x 93.74768pt.
+ [5 <./Figures/scoring.png> <./Figures/zamjenska.png>]
+[6]
+<Figures/neural.png, id=166, 827.09pt x 852.18375pt>
+File: Figures/neural.png Graphic file (type png)
+<use Figures/neural.png>
+Package pdftex.def Info: Figures/neural.png  used on input line 141.
+(pdftex.def)             Requested size: 255.79108pt x 263.55006pt.
+ [7 <./Figures/neural.png>]
 Poglavlje 3..
-<Figures/gamefinished.png, id=200, 600.2425pt x 612.2875pt>
+<Figures/gamefinished.png, id=174, 600.2425pt x 612.2875pt>
 File: Figures/gamefinished.png Graphic file (type png)
 <use Figures/gamefinished.png>
-Package pdftex.def Info: Figures/gamefinished.png  used on input line 173.
+Package pdftex.def Info: Figures/gamefinished.png  used on input line 160.
 (pdftex.def)             Requested size: 255.79108pt x 260.92412pt.
 [8
 
  <./Figures/gamefinished.png>]
-<Figures/board_diagram.png, id=209, 1233.10687pt x 673.01437pt>
+<Figures/board_diagram.png, id=183, 1233.10687pt x 673.01437pt>
 File: Figures/board_diagram.png Graphic file (type png)
 <use Figures/board_diagram.png>
-Package pdftex.def Info: Figures/board_diagram.png  used on input line 191.
+Package pdftex.def Info: Figures/board_diagram.png  used on input line 178.
 (pdftex.def)             Requested size: 299.88882pt x 163.67303pt.
- [9 <./Figures/board_diagram.png (PNG copy)>]
-[10]
+LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line
+ 185.
+
+(/usr/share/texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
+File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
+) [9{/usr/share/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc} <./Figure
+s/board_diagram.png (PNG copy)>] [10]
 Poglavlje 4..
-<Figures/random.png, id=221, 1174.3875pt x 844.15375pt>
+<Figures/random.png, id=195, 1174.3875pt x 844.15375pt>
 File: Figures/random.png Graphic file (type png)
 <use Figures/random.png>
-Package pdftex.def Info: Figures/random.png  used on input line 224.
-(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
+Package pdftex.def Info: Figures/random.png  used on input line 211.
+(pdftex.def)             Requested size: 255.79108pt x 183.85957pt.
 [11
 
  <./Figures/random.png>]
-<Figures/sofort.png, id=229, 1174.3875pt x 844.15375pt>
+<Figures/sofort.png, id=203, 1174.3875pt x 844.15375pt>
 File: Figures/sofort.png Graphic file (type png)
 <use Figures/sofort.png>
-Package pdftex.def Info: Figures/sofort.png  used on input line 241.
-(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
-<Figures/reach.png, id=231, 1174.3875pt x 844.15375pt>
+Package pdftex.def Info: Figures/sofort.png  used on input line 225.
+(pdftex.def)             Requested size: 255.79108pt x 183.85957pt.
+<Figures/reach.png, id=205, 1174.3875pt x 844.15375pt>
 File: Figures/reach.png Graphic file (type png)
 <use Figures/reach.png>
-Package pdftex.def Info: Figures/reach.png  used on input line 254.
-(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
-<Figures/depth.png, id=233, 1174.3875pt x 844.15375pt>
+Package pdftex.def Info: Figures/reach.png  used on input line 238.
+(pdftex.def)             Requested size: 255.79108pt x 183.85957pt.
+
+Overfull \hbox (20.6798pt too wide) in paragraph at lines 244--244
+[]\T1/opensans-TLF/b/n/16 Dubinska he-uris-tika s iz-ra-£u-na-va-njem naj-du-lj
+eg puta 
+ []
+
+[12 <./Figures/sofort.png> <./Figures/reach.png>]
+<Figures/depth.png, id=216, 1174.3875pt x 844.15375pt>
 File: Figures/depth.png Graphic file (type png)
 <use Figures/depth.png>
-Package pdftex.def Info: Figures/depth.png  used on input line 267.
-(pdftex.def)             Requested size: 299.88882pt x 215.55905pt.
- [12 <./Figures/sofort.png>] [13 <./Figures/reach.png>] [14 <./Figures/depth.pn
-g>]
+Package pdftex.def Info: Figures/depth.png  used on input line 251.
+(pdftex.def)             Requested size: 255.79108pt x 183.85957pt.
+ [13 <./Figures/depth.png>]
 Poglavlje 5..
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 287.
+Underfull \hbox (badness 4673) in paragraph at lines 257--257
+[]\T1/opensans-TLF/b/n/18 Razrada umjet-nih ne-uron-skih
+ []
 
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 287.
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 264.
 
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 287.
-
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 287.
-
-[15
+[14
 
 ]
+<Figures/neuronska1.png, id=230, 1190.4475pt x 833.1125pt>
+File: Figures/neuronska1.png Graphic file (type png)
+<use Figures/neuronska1.png>
+Package pdftex.def Info: Figures/neuronska1.png  used on input line 289.
+(pdftex.def)             Requested size: 255.79108pt x 179.00128pt.
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 287.
 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 295.
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 287.
+[15 <./Figures/neuronska1.png>]
+<Figures/neural_second.png, id=239, 1530.71875pt x 547.04375pt>
+File: Figures/neural_second.png Graphic file (type png)
+<use Figures/neural_second.png>
+Package pdftex.def Info: Figures/neural_second.png  used on input line 319.
+(pdftex.def)             Requested size: 388.09775pt x 138.69714pt.
 
-[16]
+Overfull \hbox (6.1726pt too wide) in paragraph at lines 324--324
+[]\T1/opensans-TLF/b/n/16 Umjetna ne-uron-ska mreºa s os-ta-lim in-for-ma-ci-ja
+ma 
+ []
+
+<Figures/dodatna.png, id=241, 1166.3575pt x 839.135pt>
+File: Figures/dodatna.png Graphic file (type png)
+<use Figures/dodatna.png>
+Package pdftex.def Info: Figures/dodatna.png  used on input line 330.
+(pdftex.def)             Requested size: 255.79108pt x 184.02127pt.
+[16 <./Figures/neural_second.png>]
+<Figures/loops.png, id=251, 1168.365pt x 1052.93375pt>
+File: Figures/loops.png Graphic file (type png)
+<use Figures/loops.png>
+Package pdftex.def Info: Figures/loops.png  used on input line 339.
+(pdftex.def)             Requested size: 211.68661pt x 190.757pt.
+<Figures/loops_graph2.png, id=253, 1171.37625pt x 839.135pt>
+File: Figures/loops_graph2.png Graphic file (type png)
+<use Figures/loops_graph2.png>
+Package pdftex.def Info: Figures/loops_graph2.png  used on input line 348.
+(pdftex.def)             Requested size: 255.79108pt x 183.24022pt.
+ [17 <./Figures/dodatna.png> <./Figures/loops.png>]
+<Figures/najbolja.png, id=264, 1208.515pt x 836.12375pt>
+File: Figures/najbolja.png Graphic file (type png)
+<use Figures/najbolja.png>
+Package pdftex.def Info: Figures/najbolja.png  used on input line 366.
+(pdftex.def)             Requested size: 255.79108pt x 176.96906pt.
+ [18 <./Figures/loops_graph2.png> <./Figures/najbolja.png>]
 Poglavlje 6..
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 294.
-
-(./zavrsni_rad.bbl [17
-
-]) [18
-
-]
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 311.
-
+<Figures/histoheuristic.png, id=279, 1138.2525pt x 839.135pt>
+File: Figures/histoheuristic.png Graphic file (type png)
+<use Figures/histoheuristic.png>
+Package pdftex.def Info: Figures/histoheuristic.png  used on input line 379.
+(pdftex.def)             Requested size: 255.79108pt x 188.56674pt.
+<Figures/histoneural.png, id=280, 1138.2525pt x 839.135pt>
+File: Figures/histoneural.png Graphic file (type png)
+<use Figures/histoneural.png>
+Package pdftex.def Info: Figures/histoneural.png  used on input line 386.
+(pdftex.def)             Requested size: 255.79108pt x 188.56674pt.
 [19
 
-] [20
+ <./Figures/histoheuristic.png> <./Figures/histoneural.png>] [20]
+Poglavlje 7..
+
+Overfull \hbox (11.26585pt too wide) in paragraph at lines 401--402
+[]\T1/stix2/m/n/12 Zbog pada to£-nosti ne-uron-ske mreºe kod po-ve-¢a-va-nja ul
+aza, te-²ko je is-tre-ni-rati umjetnu
+ []
+
+(./zavrsni_rad.bbl [21
+
+]) [22
 
 ]
-pdfTeX warning (ext4): destination with the same identifier (name{chapter.1}) h
-as been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.335 \chapter{The Code}
-                        
-Privitak A.
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 338.
+LaTeX Font Info:    Font shape `T1/opensans-TLF/bx/n' in size <14> not availabl
+e
+(Font)              Font shape `T1/opensans-TLF/b/n' tried instead on input lin
+e 420.
+LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
+(Font)              scaled to size 14.0pt on input line 420.
+LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
+(Font)              scaled to size 14.0pt on input line 420.
 
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 338.
+LaTeX Warning: No \author given.
 
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 338.
-
-
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 338.
-
-[21
-
+[23
 
 ]
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 338.
+LaTeX Warning: No \author given.
 
+[24
 
-Package blindtext Warning: croatian not defined, using English instead.
-(blindtext)                 on input line 338.
-
-[22] (./zavrsni_rad.aux)
+] (./zavrsni_rad.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1106,40 +1109,47 @@ ls1stix2sf.fd    2018/04/02 v2.0.0-latex stix2 sans-serif LS1 font definitions
 ls2stix2tt.fd    2018/04/02 v2.0.0-latex stix2 typewriter LS2 font definitions
     umsa.fd    2013/01/14 v3.01 AMS symbols A
     umsb.fd    2013/01/14 v3.01 AMS symbols B
-Figures/lenovo_yoga_tab3_pro_front.png
-  t1cmtt.fd    2023/04/13 v2.5m Standard LaTeX font definitions
 Figures/game.png
+Figures/scoring.png
+Figures/zamjenska.png
+Figures/neural.png
 Figures/gamefinished.png
 Figures/board_diagram.png
+ts1stix2.fd    2018/04/02 v2.0.0-latex stix2 TS1 font definitions
 Figures/random.png
 Figures/sofort.png
 Figures/reach.png
 Figures/depth.png
+Figures/neuronska1.png
+Figures/neural_second.png
+Figures/dodatna.png
+Figures/loops.png
+Figures/loops_graph2.png
+Figures/najbolja.png
+Figures/histoheuristic.png
+Figures/histoneural.png
 zavrsni_rad.bbl
  ***********
 
 Package rerunfilecheck Info: File `zavrsni_rad.out' has not changed.
-(rerunfilecheck)             Checksum: D74DEE49D607DA64C8577EF30A7491DF;4478.
+(rerunfilecheck)             Checksum: 44A13A29BAB94A6E4AEF20CF6630C39C;4460.
  ) 
 Here is how much of TeX's memory you used:
- 18045 strings out of 475435
- 278651 string characters out of 5776811
- 1935187 words of memory out of 5000000
- 39833 multiletter control sequences out of 15000+600000
- 638222 words of font info for 138 fonts, out of 8000000 for 9000
+ 18104 strings out of 475435
+ 279884 string characters out of 5776812
+ 1936187 words of memory out of 5000000
+ 39885 multiletter control sequences out of 15000+600000
+ 617747 words of font info for 93 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 87i,6n,131p,705b,630s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,8n,131p,813b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Bold.pfb></usr/
-share/texmf-dist/fonts/type1/ascender/opensans/OpenSans-Regular.pfb></usr/share
-/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb></usr/share/texmf-dist
-/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb></usr/share/texmf-dist/fonts
-/type1/public/stix2-type1/STIX2Text-Italic.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/stix2-type1/STIX2Text-Regular.pfb></usr/share/texmf-dist/fonts/type1/
-public/cm-super/sftt1200.pfb>
-Output written on zavrsni_rad.pdf (25 pages, 7149822 bytes).
+share/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb></usr/share/
+texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb></usr/share/texm
+f-dist/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb>
+Output written on zavrsni_rad.pdf (25 pages, 10469934 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 284 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 275 words of extra memory for PDF output out of 10000 (max. 10000000)
 

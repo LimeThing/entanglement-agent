@@ -1,35 +1,32 @@
 \babel@toc {croatian}{}\relax 
-\babel@toc {croatian}{}\relax 
-\babel@toc {croatian}{}\relax 
 \contentsline {chapter}{\numberline {1.}Uvod}{3}{chapter.1}%
-\contentsline {chapter}{\numberline {2.}Objašnjenja pojmova}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1.}O igri Entanglement}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2.}Agent umjetne inteligencije}{6}{section.2.2}%
+\contentsline {chapter}{\numberline {2.}Objašnjenja pojmova}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1.}O igri Entanglement}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2.}Agent umjetne inteligencije}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3.}Heuristike}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4.}Umjetne neuronske mreže}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.4.}Umjetne neuronske mreže}{6}{section.2.4}%
 \contentsline {chapter}{\numberline {3.}Pojedinosti implementacije}{8}{chapter.3}%
 \contentsline {section}{\numberline {3.1.}Razvojno okruženje za implementaciju agenata}{8}{section.3.1}%
 \contentsline {section}{\numberline {3.2.}Definicija stanja igre, ploče, opasnosti i koraka}{9}{section.3.2}%
-\contentsline {chapter}{\numberline {4.}Razrada zadatka}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {4.}Razrada heuristika}{11}{chapter.4}%
 \contentsline {section}{\numberline {4.1.}Biranje koraka slučajnim odabirom}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2.}Implementirane heuristike}{11}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1.}Neposredna heuristika}{11}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2.}Dubinska heuristika sa slučajnim odabirom}{12}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3.}Dubinska heuristika s izračunavanjem najduljeg puta}{12}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3.}Implementirane umjetne neuronske mreže}{13}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1.}Umjetna neuronska mreža s izbjegavanjem opasnosti}{13}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2.}Umjetna neuronska mreža s informacijom o najduljem putu}{13}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5.}Usporedba rezultata}{15}{chapter.5}%
-\contentsline {chapter}{\numberline {6.}Zaključak}{17}{chapter.6}%
-\contentsline {chapter}{Literatura}{18}{chapter*.10}%
+\contentsline {section}{\numberline {4.2.}Neposredna heuristika}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3.}Dubinska heuristika sa slučajnim odabirom}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4.}Dubinska heuristika s izračunavanjem najduljeg puta}{13}{section.4.4}%
+\contentsline {chapter}{\numberline {5.}Razrada umjetnih neuronskih mreža}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1.}Umjetna neuronska mreža s izbjegavanjem opasnosti}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2.}Umjetna neuronska mreža s informacijom o najduljem putu}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.3.}Umjetna neuronska mreža s ostalim informacijama}{16}{section.5.3}%
+\contentsline {chapter}{\numberline {6.}Usporedba rezultata}{19}{chapter.6}%
+\contentsline {chapter}{\numberline {7.}Zaključak}{21}{chapter.7}%
+\contentsline {chapter}{Literatura}{22}{chapter*.22}%
 \babel@toc {croatian}{}\relax 
-\contentsline {chapter}{Sa\v {z}etak}{19}{chapter*.11}%
+\contentsline {chapter}{Sa\v {z}etak}{23}{chapter*.23}%
 \babel@toc {croatian}{}\relax 
 \babel@toc {croatian}{}\relax 
-\babel@toc {croatian}{}\relax 
-\babel@toc {english}{}\relax 
-\contentsline {chapter}{Abstract}{20}{chapter*.12}%
 \babel@toc {croatian}{}\relax 
 \babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{24}{chapter*.24}%
 \babel@toc {croatian}{}\relax 
-\contentsline {chapter}{\numberline {A:}The Code}{21}{chapter.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {croatian}{}\relax 

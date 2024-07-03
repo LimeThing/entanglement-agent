@@ -14,7 +14,7 @@ from helper import plot
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
-LR = 0.01
+LR = 0.0001
 
 
 class Agent:
@@ -24,7 +24,7 @@ class Agent:
         self.epsilon = 0  # randomness parameter
         self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Linear_QNet(73, 40, 40, 7)
+        self.model = Linear_QNet(73, 100, 12)
         self.trainer = QTrainer(self.model, learning_rate=LR, gamma=self.gamma)
 
     def get_state(self, game: Game):
@@ -219,15 +219,19 @@ class Agent:
         self.trainer.train_step(state, action, reward, next_state, game_over)
 
     def get_action(self, state):
-        self.epsilon = 80 - self.number_of_games
+        self.epsilon = 600 - self.number_of_games
         final_move = [0, 0]
-        modified_move = [0, 0, 0, 0, 0, 0, 0]
+        modified_move = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         if random.randint(0, 200) < self.epsilon:
-            final_move[0] = random.randint(0, 5)
-            final_move[1] = random.randint(0, 1)
+            move = random.randint(0, 5)
+            swap = random.randint(0, 1)
             modified_move[final_move[0]] = 1
             modified_move[6] = final_move[1]
+            if swap == 0:
+                modified_move[move] = 1
+            else:
+                modified_move[move+6] = 1
         else:
             state0 = torch.tensor(state, dtype=torch.float)
             prediction = self.model(state0)
@@ -238,8 +242,11 @@ class Agent:
             final_move[0] = move
             final_move[1] = swap
 
-            modified_move = [0, 0, 0, 0, 0, 0, swap]
-            modified_move[move] = 1
+
+            if swap == 0:
+                modified_move[move] = 1
+            else:
+                modified_move[move+6] = 1
 
         return modified_move
 
@@ -251,15 +258,16 @@ def train():
     record = 0
     agent = Agent()
     board = Board()
-    game = Game(board, False)
+    game = Reader(board)
     done = True
     paused = False
+    brojac = 0
 
     while done:
         if not paused:
             state_old = agent.get_state(game)  # get old state
             final_move = agent.get_action(state_old)  # new move
-            reward, game_over, score = game.play_step(final_move)  # perform move
+            reward, game_over, score = game.play_step(final_move, True)  # perform move
             state_new = agent.get_state(game)  # get new state after previous move
             agent.train_short_memory(state_old, final_move, reward, state_new, game_over)
             agent.remember(state_old, final_move, reward, state_new, game_over)
@@ -280,14 +288,16 @@ def train():
                 total_score += score
                 mean_score = total_score / agent.number_of_games
                 plot_average_scores.append(mean_score)
-                plot(plot_scores, plot_average_scores)
+                #plot(plot_scores, plot_average_scores)
+                if (brojac % 100 == 0): print("" + brojac.__str__() + " " + mean_score.__str__() + " " + record.__str__())
+                brojac = brojac + 1
         else:
             time.sleep(0.05)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
-                done = False
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_p:
-                paused = not paused
+        # for event in pygame.event.get():
+        #     if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
+        #         done = False
+        #     elif event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+        #         paused = not paused
 
 
 if __name__ == '__main__':

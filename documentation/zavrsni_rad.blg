@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2024/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: zavrsni_rad.aux
 The style file: fer_IEEEtran_HR.bst
@@ -10,49 +10,44 @@ Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 150 items from 100.
 Database file #1: literatura.bib
-Repeated entry---line 138 of file literatura.bib
- : @misc{entanglementgithub
- :                         ,
-I'm skipping whatever remains of this entry
-You've used 8 entries,
+You've used 2 entries,
             4225 wiz_defined-function locations,
-            877 strings with 8818 characters,
-and the built_in function-call counts, 4819 in all, are:
-= -- 346
-> -- 94
-< -- 30
-+ -- 54
-- -- 16
-* -- 194
-:= -- 722
-add.period$ -- 18
-call.type$ -- 8
-change.case$ -- 4
-chr.to.int$ -- 75
-cite$ -- 8
-duplicate$ -- 346
-empty$ -- 458
-format.name$ -- 21
-if$ -- 1153
+            843 strings with 7981 characters,
+and the built_in function-call counts, 724 in all, are:
+= -- 38
+> -- 8
+< -- 0
++ -- 4
+- -- 2
+* -- 19
+:= -- 131
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 57
+empty$ -- 74
+format.name$ -- 2
+if$ -- 154
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 66
-newline$ -- 55
-num.names$ -- 8
-pop$ -- 178
+int.to.str$ -- 2
+missing$ -- 15
+newline$ -- 31
+num.names$ -- 2
+pop$ -- 45
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 393
+skip$ -- 59
 stack$ -- 0
-substring$ -- 180
-swap$ -- 249
-text.length$ -- 5
+substring$ -- 2
+swap$ -- 27
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 2
 warning$ -- 0
-while$ -- 17
-width$ -- 9
-write$ -- 95
-(There was 1 error message)
+while$ -- 2
+width$ -- 3
+write$ -- 37

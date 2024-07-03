@@ -5,7 +5,7 @@ import torch
 import numpy as np
 from collections import deque
 import tile
-from helper import plot
+from helper import plot, histogram
 from tile import Board
 from main import Game
 from main import Reader
@@ -37,18 +37,18 @@ class Agent:
                      [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
         def find_depth(y1, x1, depth, direction):
-            print(f'{y1} {x1} and {y} {x} on depth {depth} and looking at path {direction}')
+            #print(f'{y1} {x1} and {y} {x} on depth {depth} and looking at path {direction}')
             if y1 == y and x1 == x:
-                print(f'{y1} {x1} and {y} {x} and it looped')
+                #print(f'{y1} {x1} and {y} {x} and it looped')
                 return [-1, -1, -1, -1]
             if game.board.board[y1][x1].kind == tile.Tile.OPEN:
-                print("current tile is open")
+                #print("current tile is open")
                 return [0, depth, y1, x1]
             elif game.board.board[y1][x1].kind == tile.Tile.CLOSED or game.board.board[y1][x1].kind == tile.Tile.START:
-                print("current tile is closed or start, aka danger")
+                #print("current tile is closed or start, aka danger")
                 return [1, depth, y1, x1]
             else:
-                print("current tile is a placed piece")
+                #print("current tile is a placed piece")
                 new_direction = game.board.board[y1][x1].connects[direction]
                 if new_direction == 0 or new_direction == 1:
                     y1 = y1 - 1
@@ -81,7 +81,7 @@ class Agent:
                 new_direction = tile.Tile.OPPOSITE[new_direction]
                 return find_depth(y1, x1, depth + 1, new_direction)
 
-        print(f'Calling find depth for {y} and {x}')
+        #print(f'Calling find depth for {y} and {x}')
         if game.board.board[y][x].kind == tile.Tile.CLOSED or game.board.board[y][x].kind == tile.Tile.START:
             return [entry_point, path_info, game.board.cur_tile]
 
@@ -167,7 +167,7 @@ class Agent:
 
         path_info[entry_point] = [-1, -1, -1, -1]
 
-        print(f'Paths: {path_info} on {y} {x}')
+        #print(f'Paths: {path_info} on {y} {x}')
 
         return [entry_point, path_info, game.board.cur_tile, game.board.swap_tile]
 
@@ -216,7 +216,12 @@ class Agent:
                     swap = 1
 
         final_move = [best_move, swap]
-        print(final_move)
+        final_move = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        if swap == 0:
+            final_move[best_move] = 1
+        else:
+            final_move[best_move+6] = 1
+
         return final_move
 
 
@@ -227,15 +232,16 @@ def train():
     record = 0
     agent = Agent()
     board = Board()
-    game = Game(board, False)
+    game = Reader(board)
     done = True
     paused = False
+    brojac = 0
 
     while done:
         if not paused:
             state_old = agent.get_state(game)  # get old state
             final_move = agent.get_action(state_old)  # new move
-            reward, game_over, score = game.play_step(final_move)  # perform move
+            reward, game_over, score = game.play_step(final_move, True)  # perform move
 
             if game_over:
                 game.reset()
@@ -248,16 +254,22 @@ def train():
                 total_score += score
                 mean_score = total_score / agent.number_of_games
                 plot_average_scores.append(mean_score)
-                plot(plot_scores, plot_average_scores)
+                #plot(plot_scores, plot_average_scores)
+
+                brojac += 1
+                if brojac % 100 == 0:
+                    print(mean_score)
+                if brojac % 3000 == 0:
+                    histogram(plot_scores)
 
                 print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
         else:
             time.sleep(0.5)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
-                done = False
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_p:
-                paused = not paused
+        # for event in pygame.event.get():
+        #     if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
+        #         done = False
+        #     elif event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+        #         paused = not paused
 
 
 if __name__ == '__main__':

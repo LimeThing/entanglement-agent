@@ -24,48 +24,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{6248073}
-\BIBentryALTinterwordspacing
-A.~Agrawal, S.~Ramalingam, Y.~Taguchi, i V.~Chari, ``A theory of multi-layer
-  flat refractive geometry'', u \emph{2012 IEEE Conference on Computer Vision
-  and Pattern Recognition}, 2012., str. 3346--3353.
-  \url{https://doi.org/10.1109/CVPR.2012.6248073}
-\BIBentrySTDinterwordspacing
-
-\bibitem{6247753}
-\BIBentryALTinterwordspacing
-M.~Gupta i S.~K. Nayar, ``Micro phase shifting'', u \emph{2012 IEEE Conference
-  on Computer Vision and Pattern Recognition}, lipanj 2012., str. 813--820.
-  \url{https://doi.org/10.1109/CVPR.2012.6247753}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ghiglia_pritt_phase_unwrapping}
-D.~C. Ghiglia i M.~D. Pritt, \emph{Two-Dimensional Phase Unwrapping: Theory,
-  Algorithms, and Software}.\hskip 1em plus 0.5em minus 0.4em\relax Wiley,
-  svibanj 1998.
-
-\bibitem{hartley2003multiple}
-R.~Hartley i A.~Zisserman, \emph{Multiple view geometry in computer
-  vision}.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge university press,
-  2003.
-
-\bibitem{4250461}
-\BIBentryALTinterwordspacing
-Y.~Y. Schechner, S.~K. Nayar, i P.~N. Belhumeur, ``Multiplexing for optimal
-  lighting'', \emph{IEEE Transactions on Pattern Analysis and Machine
-  Intelligence}, sv.~29, br.~8, str. 1339--1354, kolovoz 2007.
-  \url{https://doi.org/10.1109/TPAMI.2007.1151}
-\BIBentrySTDinterwordspacing
-
-\bibitem{123DCatch}
-{123D Catch}, \url{http://www.123dapp.com/catch}, [mre\v zno; stranica posje\'
-  cena: travanj 2017.].
-
 \bibitem{gopherwoodstudios}
 {Entanglement by Gopherwood Studios},
   \url{https://entanglement.gopherwoodstudios.com/en-US-index.html}.
 
 \bibitem{entanglementgithub}
-{Brian Shaginaw}, \url{https://github.com/orez-/entanglement}.
+{Brian Shaginaw}, \url{https://github.com/orez-/entanglement}, [mre\v zno;
+  stranica posje\' cena: lisotpad 2023.].
 
 \end{thebibliography}

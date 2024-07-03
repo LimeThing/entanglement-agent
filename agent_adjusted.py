@@ -9,12 +9,12 @@ import tile
 from tile import Board
 from main import Game
 from main import Reader
-from model import Linear_QNet, QTrainer
+from model3 import Linear_QNet, QTrainer
 from helper import plot
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
-LR = 0.001
+LR = 0.01
 
 
 class Agent:
@@ -24,7 +24,7 @@ class Agent:
         self.epsilon = 0  # randomness parameter
         self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Linear_QNet(6, 20, 20, 6)
+        self.model = Linear_QNet(6, 20,20, 20, 6)
         self.trainer = QTrainer(self.model, learning_rate=LR, gamma=self.gamma)
 
     def get_state(self, game: Game):
@@ -269,7 +269,7 @@ def train():
         if not paused:
             state_old = agent.get_state(game)  # get old state
             final_move = agent.get_action(state_old)  # new move
-            reward, game_over, score = game.play_step(final_move)  # perform move
+            reward, game_over, score = game.play_step(final_move, False)  # perform move
             state_new = agent.get_state(game)  # get new state after previous move
             agent.train_short_memory(state_old, final_move, reward, state_new, game_over)
             agent.remember(state_old, final_move, reward, state_new, game_over)

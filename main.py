@@ -86,7 +86,7 @@ class Game(object):
             pygame.display.flip()
         pygame.quit()
 
-    def play_step(self, step):
+    def play_step(self, step, reward_score):
         old_score = self.board.score
         if self.done:
             pygame.quit()
@@ -101,6 +101,10 @@ class Game(object):
         self.ui.update()
         self.ui.reblit(self.screen)
         pygame.display.flip()
+        if reward_score:
+            if keep_playing:
+                return self.board.score - old_score, False, self.board.score
+            return -10, True, self.board.score
         if keep_playing:
             return 1, False, self.board.score
         return 0, True, self.board.score
@@ -131,7 +135,7 @@ class Reader(Thread):
             else:
                 print("Malformed input.")
 
-    def play_step(self, step):
+    def play_step(self, step, reward_score):
         old_score = self.board.score
         if not self.kill:
             pygame.quit()
@@ -149,8 +153,12 @@ class Reader(Thread):
                 self.board.swap()
                 self.board.rotate(i)
         keep_playing = self.board.place()
+        if reward_score:
+            if keep_playing:
+                return self.board.score - old_score, False, self.board.score
+            return -10, True, self.board.score
         if keep_playing:
-            return self.board.score - old_score, False, self.board.score
+            return 1, False, self.board.score
         return 0, True, self.board.score
 
     def reset(self):

@@ -10,7 +10,7 @@ from tile import Board
 from main import Game
 from main import Reader
 from model import Linear_QNet, QTrainer
-from helper import plot
+from helper import plot, histogram
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -24,7 +24,7 @@ class Agent:
         self.epsilon = 0  # randomness parameter
         self.gamma = 0.9  # discount rate, smaller than 1
         self.memory = deque(maxlen=MAX_MEMORY)
-        self.model = Linear_QNet(12, 20, 20, 12)
+        self.model = Linear_QNet(12, 40, 12)
         self.trainer = QTrainer(self.model, learning_rate=LR, gamma=self.gamma)
 
     def get_state(self, game: Game):
@@ -209,29 +209,41 @@ class Agent:
         # print(state)
         # return [entry_point, path_info, game.board.cur_tile, game.board.swap_tile]
         newDangers = [0, 0, 0, 0, 0, 0]
+        newScores = [0, 0, 0, 0, 0, 0]
         for i in range(0, 6):
             exit_point = (game.board.cur_tile.connects[(entry_point + 2 * i) % 12] - 2 * i) % 12
             # print(exit_point)
-            newDangers[i] = path_info[exit_point][1]
+            newDangers[i] = path_info[exit_point][0]
+            newScores[i] = path_info[exit_point][1]
         newDangersSwap = [0, 0, 0, 0, 0, 0]
+        newScoresSwap = [0, 0, 0, 0, 0, 0]
         for i in range(0, 6):
             exit_point = (game.board.swap_tile.connects[(entry_point + 2 * i) % 12] - 2 * i) % 12
             # print(exit_point)
-            newDangers[i] = path_info[exit_point][1]
-        max = 0
-        output = newDangers + newDangersSwap
+            newDangersSwap[i] = path_info[exit_point][0]
+            newScoresSwap[i] = path_info[exit_point][1]
+
+        outputDanger = newDangers + newDangersSwap
+        outputScore = newScores + newScoresSwap
+        #print("Dangers: ", outputDanger)
+        #print("scores: ", outputScore)
+        max_output = outputScore[0]
         for i in range(0, 12):
-            if output[i] != -1:
-                if output[i] > output[max]:
-                    max = i
-                output[i] = 0
-        output[max]=2
+            if outputDanger[i] == 1:
+                outputScore[i] = -1
+            elif outputScore[i] > max_output:
+                max_output = outputScore[i]
+
+        for i in range(0, 12):
+            if outputScore[i] == max_output and outputScore[i] != 0:
+                outputScore[i] = 2
+            elif outputDanger[i] != 1: outputScore[i] = 0
 
 
         # print("path info: ", path_info)
         # print("danger: ", newDangers)
         # print(newDangers + newDangersSwap)
-        return output
+        return outputScore
 
     def remember(self, state, action, reward, next_state, game_over):
         self.memory.append((state, action, reward, next_state, game_over))
@@ -275,6 +287,7 @@ def train():
     record = 0
     agent = Agent()
     board = Board()
+    #game = Game(board, False)
     game = Reader(board)
     done = True
     paused = False
@@ -283,11 +296,16 @@ def train():
     while done:
         if not paused:
             state_old = agent.get_state(game)  # get old state
+            #print("state: ", state_old)
             final_move = agent.get_action(state_old)  # new move
-            reward, game_over, score = game.play_step(final_move)  # perform move
+            #print("move: ", final_move)
+            reward, game_over, score = game.play_step(final_move, True)  # perform move
+            #print("reward: ", reward, "over?: ", game_over, "score: ", score)
             state_new = agent.get_state(game)  # get new state after previous move
+            #print("next state: ", state_new)
             agent.train_short_memory(state_old, final_move, reward, state_new, game_over)
             agent.remember(state_old, final_move, reward, state_new, game_over)
+            #paused=True
 
             if game_over:
                 # paused = True
@@ -301,15 +319,27 @@ def train():
 
                 # print('Game:', agent.number_of_games, 'Score:', score, 'Record:', record)
 
-                plot_scores.append(score)
+
                 total_score += score
                 mean_score = total_score / agent.number_of_games
-                if (brojac % 100 == 0): print("" + brojac.__str__() + " " + mean_score.__str__())
+                if brojac % 100 == 0:
+                    print("" + brojac.__str__() + " " + mean_score.__str__() + " " + record.__str__())
+                    plot_average_scores.append(mean_score)
+                    plot_scores.append(0)
+                    plot(plot_scores, plot_average_scores)
                 brojac = brojac + 1
                 # plot_average_scores.append(mean_score)
                 # plot(plot_scores, plot_average_scores)
+                #if brojac > 5000: plot_scores.append(score)
+                #if brojac % 8000 == 0: histogram(plot_scores)
+
         # else:
         #     #time.sleep(0.0005)
+        # for event in pygame.event.get():
+        #     if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_q):
+        #         done = False
+        #     elif event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+        #         paused = not paused
 
 
 if __name__ == '__main__':
